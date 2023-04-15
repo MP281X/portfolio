@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	box-sizing: border-box;
+}
+
 body {
 	font-family: 'poppins';
 	@apply text-xl;
