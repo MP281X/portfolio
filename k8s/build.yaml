@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: portfolio
+  namespace: kaniko
+  labels: { app: portfolio }
+spec:
+  containers:
+    - name: portfolio
+      image: gcr.io/kaniko-project/executor:latest
+      args:
+        - '--context=.'
+        - '--dockerfile=./Dockerfile'
+        - '--context=git://github.com/MP281X/portfolio.git#refs/heads/main'
+        - '--destination=ghcr.io/mp281x/portfolio:latest'
+      volumeMounts: [{ name: kaniko-secret, mountPath: /kaniko/.docker }]
+      env:
+        - name: GIT_TOKEN
+          valueFrom: { secretKeyRef: { name: github-token, key: github_token } }
+  restartPolicy: Never
+  volumes: [{ name: kaniko-secret, secret: { secretName: kaniko-secret } }]

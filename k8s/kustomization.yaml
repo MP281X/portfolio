@@ -1,0 +1,4 @@
+resources:
+  - build.yaml
+  - portfolio.yaml
+  - redis.yaml
