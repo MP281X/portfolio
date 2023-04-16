@@ -24,7 +24,11 @@ metadata:
   namespace: default
 spec:
   selector: { app: redis }
-  ports: [{ port: 8001, name: redis-ui, targetPort: 8001 }, { port: 6379, name: redis, targetPort: 6379 }]
+  ports:
+    [
+      { port: 8001, name: redis-ui, targetPort: 8001 },
+      { port: 6379, name: redis, targetPort: 6379 }
+    ]
   clusterIP: 10.43.0.132
 
 ---

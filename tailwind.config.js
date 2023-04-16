@@ -3,7 +3,7 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: '#ff7252'
+				accent: '#10101a'
 			}
 		}
 	},

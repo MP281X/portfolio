@@ -3,12 +3,25 @@
 	import Tecnology from './tecnology.svelte';
 </script>
 
-<!-- navbar -->
-<nav class="flex h-16 w-full items-center justify-between px-5">
-	<div>Logo</div>
-	<div>navigation</div>
-</nav>
+<div id="scrollSnap">
+	<Hero />
 
-<Hero />
+	<Tecnology />
+</div>
 
-<Tecnology />
+<style lang="postcss">
+	#scrollSnap {
+		/* add the scroll snap functionality */
+		height: 100vh;
+		scroll-snap-type: y proximity;
+		overflow-x: scroll;
+
+		/* scroll to ancor point */
+		scroll-behavior: smooth;
+		position: relative;
+	}
+
+	:global(section) {
+		scroll-snap-align: end;
+	}
+</style>

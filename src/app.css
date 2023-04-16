@@ -11,6 +11,29 @@ body {
 	@apply text-xl;
 }
 
+::-webkit-scrollbar {
+	display: none;
+}
+
+/* animation on scroll */
+:is([data-visible='true']) {
+	animation-name: scrollAnimation;
+	animation-duration: 0.5s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+@keyframes scrollAnimation {
+	0% {
+		opacity: 0;
+		transform: translateY(-80%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 /* font configuration */
 @font-face {
 	font-family: 'poppins';
