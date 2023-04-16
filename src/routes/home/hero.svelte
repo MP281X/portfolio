@@ -1,40 +1,34 @@
-<script>
-	import Navbar from './navbar.svelte';
-
-	import animateOnScroll from '$lib/animateOnScroll';
-	animateOnScroll();
-</script>
-
-<!-- hero -->
-<section id="section-1" class="grid h-[100dvh] place-items-center bg-white">
-	<h1 class="left-0 top-16">{'<div>'}</h1>
+<!-- hero (display a stacked grid) -->
+<section id="section-1">
+	<!-- animated text at the edge of the screen -->
+	<h1 class="left-0 top-0">{'<div>'}</h1>
 	<h1 class="bottom-0 right-0">{'</div>'}</h1>
 
-	<Navbar />
-
-	<p class="z-10 p-5">
+	<!-- hero text -->
+	<div class="z-10 p-5">
 		<span class="text-5xl font-bold sm:text-7xl">Paludgnach <br /> Matteo </span>
 
 		<br />
 
-		<span data-visible="false" class="mt-5 block text-3xl font-normal opacity-0 sm:text-4xl">
+		<span data-visible="false" class="mt-5 block text-3xl font-normal opacity-0 sm:text-4xl" style="animation-delay: 200ms;">
 			Hi, I'm a Full Stack developer <br /> from Italy
 		</span>
-	</p>
+	</div>
 </section>
 
 <style>
+	/* grid  */
 	section {
 		grid-template-areas: stack;
+		position: relative;
+		height: calc(100dvh - 5rem);
+		display: grid;
+		place-items: center;
 	}
 
 	section > * {
-		grid-row: 1/-1;
-		grid-column: 1/-1;
-	}
-
-	:is([data-visible='true']) {
-		animation-delay: 200ms;
+		grid-row: 1 / -1;
+		grid-column: 1 / -1;
 	}
 
 	/* text gradient animation */

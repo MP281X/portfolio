@@ -1,27 +1,11 @@
 <script>
 	import Hero from './hero.svelte';
+	import Navbar from './navbar.svelte';
 	import Tecnology from './tecnology.svelte';
 </script>
 
-<div id="scrollSnap">
-	<Hero />
+<Navbar />
 
-	<Tecnology />
-</div>
+<Hero />
 
-<style lang="postcss">
-	#scrollSnap {
-		/* add the scroll snap functionality */
-		height: 100dvh;
-		scroll-snap-type: y proximity;
-		overflow-x: scroll;
-
-		/* scroll to ancor point */
-		scroll-behavior: smooth;
-		position: relative;
-	}
-
-	:global(section) {
-		scroll-snap-align: end;
-	}
-</style>
+<Tecnology />

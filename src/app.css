@@ -2,20 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-	box-sizing: border-box;
+/*? animation on scroll */
+:is([data-visible='false']) {
+	transform: translateY(-80%);
+	opacity: 0;
 }
 
-body {
-	font-family: 'poppins';
-	@apply text-xl;
-}
-
-::-webkit-scrollbar {
-	display: none;
-}
-
-/* animation on scroll */
 :is([data-visible='true']) {
 	animation-name: scrollAnimation;
 	animation-duration: 0.5s;
@@ -34,34 +26,29 @@ body {
 	}
 }
 
-/* font configuration */
-@font-face {
-	font-family: 'poppins';
-	src: url(/style/font.woff2) format('woff2');
-	font-weight: 500;
-	font-style: normal;
-}
+@layer components {
+	.btn-white {
+		@apply border-2 px-3 py-3 text-center text-xl font-bold text-white sm:px-5 sm:text-2xl;
 
-/* icons configuration */
-.icons {
-	font-family: 'Material Symbols Rounded';
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;
-	line-height: 1;
-	letter-spacing: normal;
-	text-transform: none;
-	display: inline-block;
-	white-space: nowrap;
-	word-wrap: normal;
-	direction: ltr;
-	-webkit-font-feature-settings: 'liga';
-	-webkit-font-smoothing: antialiased;
-}
+		transition-property: box-shadow background;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+	}
 
-@font-face {
-	font-family: 'Material Symbols Rounded';
-	font-style: normal;
-	font-weight: 700;
-	src: url(/style/icons.woff2) format('woff2');
+	.btn-white:hover {
+		@apply border-2 border-accent bg-white text-accent;
+		box-shadow: 5px 5px white;
+	}
+
+	.btn-black {
+		@apply border-2 border-white bg-accent px-5 py-3 text-2xl font-bold text-white;
+		transition-property: box-shadow background;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+	}
+
+	.btn-black:hover {
+		@apply border-accent bg-white text-accent;
+		box-shadow: 5px 5px #10101a;
+	}
 }
