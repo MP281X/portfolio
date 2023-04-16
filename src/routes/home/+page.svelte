@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 	import Hero from './hero.svelte';
 	import Tecnology from './tecnology.svelte';
 
 	onMount(() => {
-		window.scrollTo(0, 1);
+		setTimeout(function () {
+			document.getElementById('scrollSnap')!.scrollTo(0, 1);
+		}, 0);
 	});
 </script>
 
