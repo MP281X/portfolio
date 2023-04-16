@@ -1,6 +1,11 @@
 <script>
+	import { onMount } from 'svelte';
 	import Hero from './hero.svelte';
 	import Tecnology from './tecnology.svelte';
+
+	onMount(() => {
+		window.scrollTo(0, 1);
+	});
 </script>
 
 <div id="scrollSnap">

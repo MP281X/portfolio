@@ -6,7 +6,7 @@
 </script>
 
 <!-- hero -->
-<section id="section-1" class="grid h-[100dvh] place-items-center bg-white">
+<section id="section-1" class="grid h-screen place-items-center bg-white">
 	<h1 class="left-0 top-16">{'<div>'}</h1>
 	<h1 class="bottom-0 right-0">{'</div>'}</h1>
 
