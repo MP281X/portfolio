@@ -4,8 +4,8 @@
 
 /*? animation on scroll */
 :is([data-visible='false']) {
-	transform: translateY(-80%);
-	opacity: 0;
+	/* transform: translateY(-80%);
+	opacity: 0; */
 }
 
 :is([data-visible='true']) {

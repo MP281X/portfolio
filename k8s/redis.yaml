@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: default
+  namespace: portfolio
   labels: { app: redis }
   annotations: { keel.sh/policy: force }
 spec:
@@ -21,11 +21,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: default
+  namespace: portfolio
 spec:
   selector: { app: redis }
   ports: [{ port: 8001, name: redis-ui, targetPort: 8001 }, { port: 6379, name: redis, targetPort: 6379 }]
-  clusterIP: 10.43.0.132
+  clusterIP: 10.43.0.150
 
 ---
 apiVersion: traefik.containo.us/v1alpha1
@@ -39,6 +39,6 @@ metadata:
 spec:
   entryPoints: [websecure]
   routes:
-    - match: Host(`redis-ui.mp281x.xyz`)
+    - match: Host(`redis-portfolio.mp281x.xyz`)
       kind: Rule
       services: [{ name: redis, port: 8001 }]

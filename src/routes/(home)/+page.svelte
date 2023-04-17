@@ -1,11 +1,11 @@
 <script>
 	import Hero from './hero.svelte';
 	import Navbar from './navbar.svelte';
-	import Tecnology from './tecnology.svelte';
+	import Skills from './skills.svelte';
 </script>
 
 <Navbar />
 
 <Hero />
 
-<Tecnology />
+<Skills />

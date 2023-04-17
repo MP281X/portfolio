@@ -34,7 +34,7 @@
 	box-sizing: border-box;
 }
 
-body {
+html {
 	font-family: 'poppins';
 	@apply text-xl;
 
