@@ -13,7 +13,7 @@
 </script>
 
 <!-- my skills -->
-<section id="my_skills" class="flex h-[100svh] flex-col bg-accent text-white">
+<section id="my_skills" class="flex h-screen flex-col bg-accent text-white">
 	<!-- buttons -->
 	<div class="flex flex-wrap items-center justify-center gap-10 p-10">
 		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 0)}> Frontend </button>
