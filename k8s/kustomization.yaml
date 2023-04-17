@@ -2,6 +2,6 @@
 
 resources:
   - build.yaml
-  - portfolio.yaml
+  - namespace.yaml
   - portfolio.yaml
   - redis.yaml
