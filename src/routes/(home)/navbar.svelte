@@ -30,7 +30,7 @@
 	</div>
 
 	<!-- hamburgher menu button -->
-	<button class="icons block text-5xl sm:hidden" on:click={openMenu}>menu</button>
+	<button class="icons text-5xl md:hidden" on:click={openMenu}>menu</button>
 </nav>
 
 <!-- hamburgher menu -->
