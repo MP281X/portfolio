@@ -21,7 +21,7 @@
 	section {
 		grid-template-areas: stack;
 		position: relative;
-		height: calc(100vh - 5rem);
+		height: calc(100svh - 5rem);
 		margin-top: 5rem;
 		display: grid;
 		place-items: center;
