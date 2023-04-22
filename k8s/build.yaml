@@ -13,6 +13,7 @@ spec:
         - '--dockerfile=./Dockerfile'
         - '--context=git://github.com/MP281X/portfolio.git#refs/heads/main'
         - '--destination=ghcr.io/mp281x/portfolio:latest'
+        - '--build-arg "POSTGRES_URL=postgresql://postgres:postgres@10.43.0.151:5432/postgres?sslmode=disable"'
       volumeMounts: [{ name: kaniko-secret, mountPath: /kaniko/.docker }]
       env:
         - name: GIT_TOKEN
