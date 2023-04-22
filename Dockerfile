@@ -1,23 +1,20 @@
 FROM node:18-alpine AS build
 WORKDIR /app
 COPY . .
-ARG POSTGRES_URL
 
 # install pnpm
 RUN npm install -g pnpm
 
-# install dependency
-RUN pnpm install \
-    && npx kysely-codegen --dialect postgres --url $POSTGRES_URL
-
 # lint and test
-RUN npx svelte-kit sync \
+RUN pnpm install \
+    && npx svelte-kit sync \
     && npx prettier --write --plugin-search-dir=. . \
     && npx prettier --check --plugin-search-dir=. . \
     && npx eslint . && npx svelte-check --tsconfig ./tsconfig.json
 
-# build sveltekit app
-RUN npx vite build 
+# build and install dependency
+RUN npx vite build && rm -r ./node_modules \
+    && pnpm install -P
 
 # build the final image
 FROM node:18-alpine

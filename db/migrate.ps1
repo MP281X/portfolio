@@ -13,7 +13,7 @@ atlas schema clean --auto-approve -u $ENV:POSTGRES_URL;
 atlas schema apply --auto-approve -u $ENV:POSTGRES_URL --to file://db/schema.hcl;
 
 # generate the db client
-npx kysely-codegen --dialect postgres --url $ENV:POSTGRES_URL;
+npx kysely-codegen --dialect postgres --out-file ./src/lib/db.d.ts --url $ENV:POSTGRES_URL;
 
 # run the seed script
 npx ts-node-esm db/seed.ts;
