@@ -16,6 +16,9 @@ spec:
         - name: portfolio
           image: ghcr.io/mp281x/portfolio:latest
           ports: [containerPort: 3000]
+          env:
+            - { name: REDIS_URL, value: 'redis://10.43.0.150:6379' }
+            - { name: DATABASE_URL, value: 'postgresql://postgres:postgres@10.43.0.151:5432/postgres' }
 
 ---
 apiVersion: v1

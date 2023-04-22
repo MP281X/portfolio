@@ -1,15 +1,19 @@
 <script lang="ts">
 	import SkillCard from '$lib/skillCard.svelte';
 
-	let selectedGroup = 0;
-	const imgGroups = [
-		['frontend', ['svelte', 'typescript', 'windicss', 'css', 'html5', 'flutter']],
-		['backend', ['redis', 'postgresql', 'nodejs', 'mongodb', 'golang', 'dart']],
-		['devops', ['argocd', 'longhorn', 'kubernetes', 'traefik', 'github-actions', 'docker']]
-	];
+	import type { PageData } from './$types';
 
-	let selectedSkill = '';
-	const setSkill = (x: string) => (selectedSkill = x);
+	export let skills: PageData['skills'];
+
+	let selectedGroup = 0;
+	// const imgGroups = [
+	// 	['frontend', ['svelte', 'typescript', 'windicss', 'css', 'html5', 'flutter']],
+	// 	['backend', ['redis', 'postgresql', 'nodejs', 'mongodb', 'golang', 'dart']],
+	// 	['devops', ['argocd', 'longhorn', 'kubernetes', 'traefik', 'github-actions', 'docker']]
+	// ];
+
+	let selectedSkill: PageData['skills']['backend'][0];
+	const setSkill = (x: PageData['skills']['backend'][0]) => (selectedSkill = x);
 </script>
 
 <!-- my skills -->
@@ -24,22 +28,38 @@
 	<!-- 3 flex with a width of 100vh that contains the 3 grid -->
 	<div class="h-full overflow-x-hidden">
 		<div class="flex h-full w-[300vw] transition-all duration-300 ease-linear" style="transform: translateX(calc((100% / 3) * {selectedGroup} * -1))">
-			{#each imgGroups as imgGroup}
-				<!-- grid -->
-				<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-					{#each imgGroup[1] as img, i}
-						<button data-visible="false" class="img" on:click={() => setSkill(img)}>
-							<img src="/img/{imgGroup[0]}/{img}.svg" alt={img} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
-						</button>
-					{/each}
-				</div>
-			{/each}
+			<!-- frontend -->
+			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
+				{#each skills.frontend as skill, i}
+					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
+						<img src="/img/frontend/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
+					</button>
+				{/each}
+			</div>
+
+			<!-- grid -->
+			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
+				{#each skills.backend as skill, i}
+					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
+						<img src="/img/backend/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
+					</button>
+				{/each}
+			</div>
+
+			<!-- grid -->
+			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
+				{#each skills.devops as skill, i}
+					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
+						<img src="/img/devops/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
+					</button>
+				{/each}
+			</div>
 		</div>
 	</div>
 </section>
 
-{#if selectedSkill !== ''}
-	<SkillCard tecnology={selectedSkill} />
+{#if selectedSkill !== undefined}
+	<div>{selectedSkill.name}</div>
 {/if}
 
 <style lang="postcss">
