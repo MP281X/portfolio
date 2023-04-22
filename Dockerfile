@@ -20,6 +20,9 @@ RUN npx vite build && rm -r ./node_modules \
 FROM node:18-alpine
 WORKDIR /app
 
+ENV REDIS_URL
+ENV POSTGRES_URL
+
 # copy the build and the package.json
 COPY --from=build /app/package.json /app/package.json
 COPY --from=build /app/node_modules /app/node_modules
