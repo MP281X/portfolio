@@ -1,5 +1,9 @@
 import EventEmitter from 'events';
-import type { RedisClientType } from 'redis';
+import { createClient, type RedisClientType } from 'redis';
+
+import * as dotenv from 'dotenv';
+import { browser, building } from '$app/environment';
+dotenv.config();
 
 export type sseData = {
 	id: string;
@@ -11,24 +15,24 @@ const msgEmitter = new EventEmitter();
 
 // disable the connection to redis at build time
 export let redis: RedisClientType;
-// if (!browser && !building) {
-// 	// connect to redis
-// 	redis = createClient({ url: env.REDIS_URL });
-// 	await redis.connect();
+if (!browser && !building) {
+	// connect to redis
+	redis = createClient({ url: process.env.REDIS_URL });
+	await redis.connect();
 
-// 	// duplicate the client for the subsription
-// 	const subscriber = redis.duplicate();
-// 	await subscriber.connect();
+	// duplicate the client for the subsription
+	const subscriber = redis.duplicate();
+	await subscriber.connect();
 
-// 	// subscribe to the pub-sub
-// 	await subscriber.pSubscribe('*' as string, (message: string, channel: string) => {
-// 		// check if there is a user subscribed to the channel
-// 		if (msgEmitter.listenerCount(channel) > 0) {
-// 			// emit the message to the listener of the channel
-// 			msgEmitter.emit(channel, message);
-// 		}
-// 	});
-// }
+	// subscribe to the pub-sub
+	await subscriber.pSubscribe('*' as string, (message: string, channel: string) => {
+		// check if there is a user subscribed to the channel
+		if (msgEmitter.listenerCount(channel) > 0) {
+			// emit the message to the listener of the channel
+			msgEmitter.emit(channel, message);
+		}
+	});
+}
 
 export const sseServer = (channelId: string) => {
 	// create a variable for the arrow function (used in the removeListener)

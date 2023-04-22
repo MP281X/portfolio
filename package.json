@@ -28,6 +28,7 @@
 		"@types/node": "^18.15.13",
 		"@types/pg": "^8.6.6",
 		"autoprefixer": "^10.4.14",
+		"dotenv": "^16.0.3",
 		"kysely": "^0.24.2",
 		"kysely-codegen": "^0.10.0",
 		"pg": "^8.10.0",
