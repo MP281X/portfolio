@@ -1,8 +1,8 @@
 import EventEmitter from 'events';
 import { createClient, type RedisClientType } from 'redis';
+import { browser, building } from '$app/environment';
 
 import * as dotenv from 'dotenv';
-import { browser, building } from '$app/environment';
 dotenv.config();
 
 export type sseData = {
