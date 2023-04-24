@@ -1,9 +1,7 @@
-import EventEmitter from 'events';
 import { createClient, type RedisClientType } from 'redis';
 import { browser, building } from '$app/environment';
-
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { env } from '$env/dynamic/private';
+import EventEmitter from 'events';
 
 export type sseData = {
 	id: string;
@@ -17,7 +15,7 @@ const msgEmitter = new EventEmitter();
 export let redis: RedisClientType;
 if (!browser && !building) {
 	// connect to redis
-	redis = createClient({ url: process.env.REDIS_URL });
+	redis = createClient({ url: env.REDIS_URL ?? process.env.REDIS_URL });
 	await redis.connect();
 
 	// duplicate the client for the subsription

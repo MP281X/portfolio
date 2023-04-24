@@ -6,7 +6,7 @@
 
 <Navbar />
 
-<div class="flex h-[100svh] w-full flex-col justify-center gap-14 p-10 pt-20 sm:p-20">
+<div class="flex h-[100dvh] w-full flex-col justify-center gap-14 p-10 pt-20 sm:p-20">
 	<h1 class="text-center text-4xl font-bold uppercase sm:text-7xl">{data.project}</h1>
 	<div class="flex flex-wrap items-center justify-around gap-5">
 		{#each data.stack as stack}
