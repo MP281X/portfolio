@@ -14,7 +14,7 @@ const skill = async () => {
 	await db
 		.insertInto('skill')
 		.values([
-			{ category: 'frontend', name: 'sveltekit', used: true },
+			{ category: 'frontend', name: 'svelteKit', used: true },
 			{ category: 'frontend', name: 'typescript', used: true },
 			{ category: 'frontend', name: 'tailwind', used: true },
 			{ category: 'frontend', name: 'css', used: true },
@@ -59,7 +59,7 @@ const project = async () => {
 				project: 'Dicantieri',
 				decription: 'A management system for the management of customers, construction sites, suppliers and warehouse',
 				url: '/project/dicantieri',
-				stack: ['frontend/sveltekit', 'backend/postgresql', 'devops/docker', 'devops/railway']
+				stack: ['frontend/svelteKit', 'backend/postgresql', 'devops/docker', 'devops/railway']
 			},
 			{
 				project: 'K3S config',
@@ -77,7 +77,7 @@ const project = async () => {
 				project: 'Tabellone sagra',
 				decription: 'A scoreboard for displaying team scores in real time',
 				url: '/project/sagra',
-				stack: ['frontend/sveltekit', 'backend/poketbase', 'devops/docker', 'devops/kubernetes']
+				stack: ['frontend/svelteKit', 'backend/poketbase', 'devops/docker', 'devops/kubernetes']
 			}
 		])
 		.execute();
