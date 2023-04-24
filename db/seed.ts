@@ -58,21 +58,25 @@ const project = async () => {
 			{
 				project: 'Dicantieri',
 				decription: 'A software to manage',
+				url: '/project/dicantieri',
 				stack: ['frontend/svelteKit', 'backend/postgreSQL', 'devops/docker', 'devops/railway']
 			},
 			{
 				project: 'K3S config',
 				decription: 'My k3s config',
+				url: '/project/k3s_config',
 				stack: ['devops/argocd', 'devops/kubernetes', 'devops/github_1', 'devops/traefik', 'devops/longhorn']
 			},
 			{
 				project: 'Portfolio',
 				decription: 'This website',
+				url: '/project/portfolio',
 				stack: ['frontend/svelteKit', 'backend/postgreSQL', 'backend/redis', 'devops/docker', 'devops/kubernetes']
 			},
 			{
 				project: 'Sagra',
 				decription: 'A real time counter for the points of the teams',
+				url: '/project/sagra',
 				stack: ['frontend/svelteKit', 'backend/poketbase', 'devops/docker', 'devops/kubernetes']
 			}
 		])

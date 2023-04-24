@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import type { sseData } from '$lib/sseHandler.server';
 
-	import Navbar from './navbar.svelte';
+	import Navbar from '../../lib/navbar.svelte';
 	import Hero from './hero.svelte';
 	import Skills from './skills.svelte';
 	import Project from './project.svelte';

@@ -24,9 +24,9 @@
 
 	<!-- links -->
 	<div class="hidden space-x-5 text-2xl font-bold sm:block">
-		<a href="#hero" class="btn-black">HOME</a>
-		<a href="#skills" class="btn-black">MY SKILLS</a>
-		<a href="#project" class="btn-black">MY PROJECT</a>
+		<a href="/#hero" class="btn-black">HOME</a>
+		<a href="/#skills" class="btn-black">MY SKILLS</a>
+		<a href="/#project" class="btn-black">MY PROJECT</a>
 	</div>
 
 	<!-- hamburgher menu button -->
@@ -40,9 +40,9 @@
 		<button class="icons absolute right-7 top-5 text-5xl text-white" on:click={openMenu}> menu </button>
 
 		<!-- links -->
-		<a on:click={openMenu} href="#hero" class="btn-black">HOME</a>
-		<a on:click={openMenu} href="#skills" class="btn-black">MY SKILLS</a>
-		<a on:click={openMenu} href="#project" class="btn-black">MY PROJECT</a>
+		<a on:click={openMenu} href="/#hero" class="btn-black">HOME</a>
+		<a on:click={openMenu} href="/#skills" class="btn-black">MY SKILLS</a>
+		<a on:click={openMenu} href="/#project" class="btn-black">MY PROJECT</a>
 	</div>
 {/if}
 

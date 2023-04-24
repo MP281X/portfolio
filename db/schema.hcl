@@ -33,6 +33,10 @@ table "project" {
     type = varchar(20)
   }
 
+  column "url" {
+    type = varchar(30)
+  }
+
   column "decription" {
     type = text
   }

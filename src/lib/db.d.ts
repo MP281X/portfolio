@@ -6,6 +6,7 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
 
 export interface Project {
   project: string;
+  url: string;
   decription: string;
   stack: string[];
 }
