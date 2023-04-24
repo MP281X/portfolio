@@ -3,7 +3,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: '#10101a'
+				accent: '#10101a',
+				secondary: '#19192b',
+				border: '#272740'
 			}
 		}
 	},

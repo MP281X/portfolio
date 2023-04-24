@@ -1,5 +1,5 @@
 <!-- hero (display a stacked grid) -->
-<section id="section-1">
+<section id="hero">
 	<!-- animated text at the edge of the screen -->
 	<h1 class="left-0 top-0">{'<div>'}</h1>
 	<h1 class="bottom-0 right-0">{'</div>'}</h1>
@@ -10,8 +10,8 @@
 
 		<br />
 
-		<span data-visible="false" class="mt-5 block text-3xl font-normal opacity-0 sm:text-4xl" style="animation-delay: 200ms;">
-			Hi, I'm a Full Stack developer <br /> from Italy
+		<span data-visible="false" class="mt-5 block text-3xl font-semibold opacity-0 sm:text-4xl" style="animation-delay: 200ms;">
+			Hi, I'm a FullStack developer <br /> from Italy
 		</span>
 	</div>
 </section>
@@ -21,8 +21,8 @@
 	section {
 		grid-template-areas: stack;
 		position: relative;
-		height: calc(100svh - 5rem);
-		margin-top: 5rem;
+		height: 100svh;
+		padding-top: 5rem;
 		display: grid;
 		place-items: center;
 	}

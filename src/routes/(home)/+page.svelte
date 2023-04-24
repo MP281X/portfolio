@@ -2,9 +2,11 @@
 	import { onMount } from 'svelte';
 	import type { sseData } from '$lib/sseHandler.server';
 
-	import Hero from './hero.svelte';
 	import Navbar from './navbar.svelte';
+	import Hero from './hero.svelte';
 	import Skills from './skills.svelte';
+	import Project from './project.svelte';
+	import Footer from './footer.svelte';
 
 	onMount(() => {
 		// connect to the sse server
@@ -20,8 +22,7 @@
 		});
 	});
 
-	import type { PageData } from './$types';
-	export let data: PageData;
+	export let data;
 </script>
 
 <Navbar />
@@ -29,3 +30,7 @@
 <Hero />
 
 <Skills skills={data.skills} />
+
+<Project projects={data.project} />
+
+<Footer />

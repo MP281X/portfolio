@@ -4,13 +4,19 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 
+export interface Project {
+  project: string;
+  decription: string;
+  stack: string[];
+}
+
 export interface Skill {
-  id: Generated<string>;
   category: "backend" | "devops" | "frontend";
   name: string;
-  description: string;
+  used: Generated<boolean>;
 }
 
 export interface DB {
+  project: Project;
   skill: Skill;
 }

@@ -9,6 +9,7 @@ Get-Content .env | foreach {
 
 # run db migration
 clear;
+atlas schema fmt db/schema.hcl;
 atlas schema clean --auto-approve -u $ENV:POSTGRES_URL;
 atlas schema apply --auto-approve -u $ENV:POSTGRES_URL --to file://db/schema.hcl;
 

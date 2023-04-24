@@ -10,7 +10,7 @@
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) entry.target.setAttribute('data-visible', 'true');
-				else entry.target.setAttribute('data-visible', 'false');
+				// else entry.target.setAttribute('data-visible', 'false');
 			});
 		});
 

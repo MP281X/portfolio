@@ -1,23 +1,12 @@
 <script lang="ts">
-	import SkillCard from '$lib/skillCard.svelte';
-
 	import type { PageData } from './$types';
-
 	export let skills: PageData['skills'];
 
 	let selectedGroup = 0;
-	// const imgGroups = [
-	// 	['frontend', ['svelte', 'typescript', 'windicss', 'css', 'html5', 'flutter']],
-	// 	['backend', ['redis', 'postgresql', 'nodejs', 'mongodb', 'golang', 'dart']],
-	// 	['devops', ['argocd', 'longhorn', 'kubernetes', 'traefik', 'github-actions', 'docker']]
-	// ];
-
-	let selectedSkill: PageData['skills']['backend'][0];
-	const setSkill = (x: PageData['skills']['backend'][0]) => (selectedSkill = x);
 </script>
 
 <!-- my skills -->
-<section id="my_skills" class="flex h-screen flex-col bg-accent text-white">
+<section id="skills" class="flex h-screen flex-col bg-accent text-white">
 	<!-- buttons -->
 	<div class="flex flex-wrap items-center justify-center gap-10 p-10">
 		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 0)}> Frontend </button>
@@ -31,40 +20,45 @@
 			<!-- frontend -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
 				{#each skills.frontend as skill, i}
-					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
-						<img src="/img/frontend/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
-					</button>
+					<div data-before={skill.name} data-visible="false" class="img">
+						<img src="/img/frontend/{skill.name}.svg" alt={skill.name} />
+						{#if skill.used}
+							<span class="icons">check_circle</span>
+						{/if}
+					</div>
 				{/each}
 			</div>
 
-			<!-- grid -->
+			<!-- backend -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
 				{#each skills.backend as skill, i}
-					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
-						<img src="/img/backend/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
-					</button>
+					<div data-before={skill.name} data-visible="false" class="img">
+						<img src="/img/backend/{skill.name}.svg" alt={skill.name} />
+						{#if skill.used}
+							<span class="icons">check_circle</span>
+						{/if}
+					</div>
 				{/each}
 			</div>
 
-			<!-- grid -->
+			<!-- devops -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
 				{#each skills.devops as skill, i}
-					<button data-visible="false" class="img" on:click={() => setSkill(skill)}>
-						<img src="/img/devops/{skill.name}.svg" alt={skill.name} style="animation-delay: {i < 3 ? 0 : 200}ms;" />
-					</button>
+					<div data-before={skill.name} data-visible="false" class="img">
+						<img src="/img/devops/{skill.name}.svg" alt={skill.name} />
+						{#if skill.used}
+							<span class="icons">check_circle</span>
+						{/if}
+					</div>
 				{/each}
 			</div>
 		</div>
 	</div>
 </section>
 
-{#if selectedSkill !== undefined}
-	<div>{selectedSkill.name}</div>
-{/if}
-
 <style lang="postcss">
 	.img {
-		@apply h-full p-7;
+		@apply relative h-full p-7;
 		aspect-ratio: 1;
 		justify-self: center;
 		align-items: center;
@@ -79,6 +73,17 @@
 		transition-timing-function: ease;
 	}
 
+	.img:hover::before {
+		content: attr(data-before);
+		@apply absolute -top-7 border-2 border-border bg-secondary px-3 py-2 text-xl font-bold;
+
+		opacity: 0;
+		animation-name: scrollAnimation;
+		animation-duration: 0.5s;
+		animation-timing-function: ease;
+		animation-fill-mode: forwards;
+	}
+
 	.img:hover {
 		background-color: #19192b;
 		border: solid 2px #272740;
@@ -88,5 +93,10 @@
 	.img > * {
 		@apply h-full object-contain;
 		justify-self: center;
+		animation-delay: 200ms;
+	}
+
+	.img > span {
+		@apply absolute right-1 top-0 text-2xl font-bold;
 	}
 </style>

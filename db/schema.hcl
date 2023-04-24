@@ -8,11 +8,6 @@ enum "skillCategory" {
 table "skill" {
   schema = schema.public
 
-  column "id" {
-    type    = uuid
-    default = sql("gen_random_uuid()")
-  }
-
   column "category" {
     type = enum.skillCategory
   }
@@ -21,12 +16,32 @@ table "skill" {
     type = varchar(20)
   }
 
-  column "description" {
-    type = varchar
+  column "used" {
+    type    = boolean
+    default = false
   }
 
   primary_key {
-    columns = [column.id]
+    columns = [column.category, column.name]
   }
 }
 
+table "project" {
+  schema = schema.public
+
+  column "project" {
+    type = varchar(20)
+  }
+
+  column "decription" {
+    type = text
+  }
+
+  column "stack" {
+    type = sql("varchar(20)[]")
+  }
+
+  primary_key {
+    columns = [column.project]
+  }
+}
