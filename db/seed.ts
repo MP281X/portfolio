@@ -14,7 +14,7 @@ const skill = async () => {
 	await db
 		.insertInto('skill')
 		.values([
-			{ category: 'frontend', name: 'svelteKit', used: true },
+			{ category: 'frontend', name: 'sveltekit', used: true },
 			{ category: 'frontend', name: 'typescript', used: true },
 			{ category: 'frontend', name: 'tailwind', used: true },
 			{ category: 'frontend', name: 'css', used: true },
@@ -27,9 +27,9 @@ const skill = async () => {
 		.insertInto('skill')
 		.values([
 			{ category: 'backend', name: 'redis', used: true },
-			{ category: 'backend', name: 'postgreSQL', used: true },
-			{ category: 'backend', name: 'nodeJS', used: true },
-			{ category: 'backend', name: 'mongoDB' },
+			{ category: 'backend', name: 'postgresql', used: true },
+			{ category: 'backend', name: 'nodejs', used: true },
+			{ category: 'backend', name: 'mongodb' },
 			{ category: 'backend', name: 'golang' },
 			{ category: 'backend', name: 'dart' }
 		])
@@ -57,32 +57,32 @@ const project = async () => {
 		.values([
 			{
 				project: 'Dicantieri',
-				decription: 'A software to manage',
+				decription: 'A management system for the management of customers, construction sites, suppliers and warehouse',
 				url: '/project/dicantieri',
-				stack: ['frontend/svelteKit', 'backend/postgreSQL', 'devops/docker', 'devops/railway']
+				stack: ['frontend/sveltekit', 'backend/postgresql', 'devops/docker', 'devops/railway']
 			},
 			{
 				project: 'K3S config',
-				decription: 'My k3s config',
+				decription: 'The argocd/kubernetes configuration for my k3s cluster',
 				url: '/project/k3s_config',
 				stack: ['devops/argocd', 'devops/kubernetes', 'devops/github_1', 'devops/traefik', 'devops/longhorn']
 			},
 			{
-				project: 'Portfolio',
-				decription: 'This website',
-				url: '/project/portfolio',
-				stack: ['frontend/svelteKit', 'backend/postgreSQL', 'backend/redis', 'devops/docker', 'devops/kubernetes']
+				project: 'RomLinks',
+				decription: 'An app to help users to find and download custom rom for their devices',
+				url: '/project/romlinks',
+				stack: ['frontend/flutter', 'backend/golang', 'backend/mongodb', 'devops/docker']
 			},
 			{
-				project: 'Sagra',
-				decription: 'A real time counter for the points of the teams',
+				project: 'Tabellone sagra',
+				decription: 'A scoreboard for displaying team scores in real time',
 				url: '/project/sagra',
-				stack: ['frontend/svelteKit', 'backend/poketbase', 'devops/docker', 'devops/kubernetes']
+				stack: ['frontend/sveltekit', 'backend/poketbase', 'devops/docker', 'devops/kubernetes']
 			}
 		])
 		.execute();
 	const data = await db.selectFrom('project').selectAll().execute();
-	console.table(data.map(({ stack, ...x }) => x)); // eslint-disable-line @typescript-eslint/no-unused-vars
+	console.table(data.map(({ stack, decription, ...x }) => x)); // eslint-disable-line @typescript-eslint/no-unused-vars
 };
 
 const main = async () => {

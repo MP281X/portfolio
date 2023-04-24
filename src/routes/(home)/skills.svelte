@@ -75,7 +75,7 @@
 
 	.img:hover::before {
 		content: attr(data-before);
-		@apply absolute -top-7 border-2 border-border bg-secondary px-3 py-2 text-xl font-bold;
+		@apply absolute -top-5 border-2 border-border bg-secondary px-2 py-1 text-xl font-bold;
 
 		opacity: 0;
 		animation-name: scrollAnimation;

@@ -6,21 +6,26 @@
 
 	onMount(() => {
 		const nav = document.getElementById('nav') as HTMLElement;
+		nav.style.top = '0';
 		let positionPre = window.pageYOffset;
 
-		window.onscroll = () => {
-			let positionCurrent = window.pageYOffset;
-			if (positionPre > positionCurrent) nav.style.top = '0';
-			else nav.style.top = '-100px';
-			positionPre = positionCurrent;
-		};
+		setTimeout(
+			() =>
+				(window.onscroll = () => {
+					let positionCurrent = window.pageYOffset;
+					if (positionPre > positionCurrent) nav.style.top = '0';
+					else nav.style.top = '-100px';
+					positionPre = positionCurrent;
+				}),
+			100
+		);
 	});
 </script>
 
 <!-- navbar -->
 <nav id="nav">
 	<!-- logo -->
-	<a href="/home" class="text-5xl font-bold">MP</a>
+	<a href="/" class="text-5xl font-bold">MP</a>
 
 	<!-- links -->
 	<div class="hidden space-x-5 text-2xl font-bold sm:block">
