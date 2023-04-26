@@ -19,8 +19,8 @@
 		<div class="flex h-full w-[300vw] transition-all duration-300 ease-linear" style="transform: translateX(calc((100% / 3) * {selectedGroup} * -1))">
 			<!-- frontend -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.frontend as skill, i}
-					<div data-before={skill.name} data-visible="false" class="img">
+				{#each skills.frontend as skill}
+					<div data-before={skill.name} data-visible="false">
 						<img src="/img/frontend/{skill.name}.svg" alt={skill.name} />
 						{#if skill.used}
 							<span class="icons">check_circle</span>
@@ -31,8 +31,8 @@
 
 			<!-- backend -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.backend as skill, i}
-					<div data-before={skill.name} data-visible="false" class="img">
+				{#each skills.backend as skill}
+					<div data-before={skill.name} data-visible="false">
 						<img src="/img/backend/{skill.name}.svg" alt={skill.name} />
 						{#if skill.used}
 							<span class="icons">check_circle</span>
@@ -43,8 +43,8 @@
 
 			<!-- devops -->
 			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.devops as skill, i}
-					<div data-before={skill.name} data-visible="false" class="img">
+				{#each skills.devops as skill}
+					<div data-before={skill.name} data-visible="false">
 						<img src="/img/devops/{skill.name}.svg" alt={skill.name} />
 						{#if skill.used}
 							<span class="icons">check_circle</span>
@@ -57,46 +57,33 @@
 </section>
 
 <style lang="postcss">
-	.img {
-		@apply relative h-full p-7;
-		aspect-ratio: 1;
-		justify-self: center;
-		align-items: center;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		border: solid 2px #10101a;
+	div:has(> img) {
+		@apply relative flex aspect-square h-full items-center justify-center justify-self-center border-2 border-accent p-7;
 		transition-property: background box-shadow;
 		transition-duration: 0.4s;
 		transition-timing-function: ease;
 	}
 
-	.img:hover::before {
+	div:has(> img):hover::before {
 		content: attr(data-before);
-		@apply absolute -top-5 border-2 border-border bg-secondary px-2 py-1 text-xl font-bold;
+		@apply absolute -top-5 border-2 border-border bg-secondary px-2 py-1 text-xl font-bold opacity-0;
 
-		opacity: 0;
 		animation-name: scrollAnimation;
 		animation-duration: 0.5s;
 		animation-timing-function: ease;
 		animation-fill-mode: forwards;
 	}
 
-	.img:hover {
-		background-color: #19192b;
-		border: solid 2px #272740;
-		box-shadow: 5px 5px #19192b;
+	div:has(> img):hover {
+		@apply border-2 border-border bg-secondary shadow-[5px_5px_#19192b];
 	}
 
-	.img > * {
-		@apply h-full object-contain;
-		justify-self: center;
+	div:has(> img) > * {
+		@apply h-full justify-self-center object-contain;
 		animation-delay: 200ms;
 	}
 
-	.img > span {
+	div:has(> img) > span {
 		@apply absolute right-1 top-0 text-2xl font-bold;
 	}
 </style>

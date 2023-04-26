@@ -2,30 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/*? animation on scroll */
-:is([data-visible='false']) {
-	transform: translateY(-80%);
-	opacity: 0;
-}
-
-:is([data-visible='true']) {
-	animation-name: scrollAnimation;
-	animation-duration: 0.5s;
-	animation-timing-function: ease;
-	animation-fill-mode: forwards;
-}
-
-@keyframes scrollAnimation {
-	0% {
-		opacity: 0;
-		transform: translateY(-80%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
+/*? style reset */
 @layer base {
 	/* font configuration */
 	@font-face {
@@ -95,5 +72,48 @@
 	.btn-black:hover {
 		@apply border-accent bg-white text-accent;
 		box-shadow: 5px 5px #10101a;
+	}
+
+	/*? animation on scroll */
+	:is([data-visible='false']) {
+		transform: translateY(-80%);
+		opacity: 0;
+	}
+
+	:is([data-visible='true']) {
+		animation-name: scrollAnimation;
+		animation-duration: 0.5s;
+		animation-timing-function: ease;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes scrollAnimation {
+		0% {
+			opacity: 0;
+			transform: translateY(-80%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/*? text animation */
+	:is([data-animation='text']) {
+		background: linear-gradient(-45deg, #6bc5f8, #cf59e6, #6bc5f8, #cf59e6);
+		-webkit-background-clip: text;
+		background-clip: text;
+		background-size: 500% auto;
+
+		animation: textAnimation 3s ease-in-out infinite alternate;
+	}
+
+	@keyframes textAnimation {
+		0% {
+			background-position: 0% 50%;
+		}
+		100% {
+			background-position: 100% 50%;
+		}
 	}
 }

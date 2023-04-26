@@ -1,8 +1,8 @@
 <!-- hero (display a stacked grid) -->
-<section id="hero">
+<section id="hero" class="relative grid h-[100svh] place-items-center pt-20 [grid-template-areas:stack] [&>*]:col-[1/-1] [&>*]:row-[1/-1]">
 	<!-- animated text at the edge of the screen -->
-	<h1 class="left-0 top-0">{'<div>'}</h1>
-	<h1 class="bottom-0 right-0">{'</div>'}</h1>
+	<h1 data-animation="text" class="absolute left-0 top-0 p-7 text-7xl font-bold text-transparent opacity-50">{'<div>'}</h1>
+	<h1 data-animation="text" class="absolute bottom-0 right-0 p-7 text-7xl font-bold text-transparent opacity-50">{'</div>'}</h1>
 
 	<!-- hero text -->
 	<div class="z-10 p-5">
@@ -15,43 +15,3 @@
 		</span>
 	</div>
 </section>
-
-<style>
-	/* grid  */
-	section {
-		grid-template-areas: stack;
-		position: relative;
-		height: 100svh;
-		padding-top: 5rem;
-		display: grid;
-		place-items: center;
-	}
-
-	section > * {
-		grid-row: 1 / -1;
-		grid-column: 1 / -1;
-	}
-
-	/* text gradient animation */
-	h1 {
-		@apply absolute p-7 text-7xl font-bold opacity-50;
-
-		background: linear-gradient(-45deg, #6bc5f8, #cf59e6, #6bc5f8, #cf59e6);
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
-		text-fill-color: transparent;
-		background-size: 400% auto;
-
-		animation: textAnimation 5s ease-in-out infinite alternate;
-	}
-
-	@keyframes textAnimation {
-		0% {
-			background-position: 0% 50%;
-		}
-		100% {
-			background-position: 100% 50%;
-		}
-	}
-</style>
