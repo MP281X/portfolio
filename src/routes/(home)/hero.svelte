@@ -1,8 +1,8 @@
 <!-- hero (display a stacked grid) -->
 <section id="hero" class="relative grid h-[100svh] place-items-center pt-20 [grid-template-areas:stack] [&>*]:col-[1/-1] [&>*]:row-[1/-1]">
 	<!-- animated text at the edge of the screen -->
-	<h1 data-animation="text" class="absolute left-0 top-0 p-7 text-7xl font-bold text-transparent opacity-50">{'<div>'}</h1>
-	<h1 data-animation="text" class="absolute bottom-0 right-0 p-7 text-7xl font-bold text-transparent opacity-50">{'</div>'}</h1>
+	<h1 data-animation="text" class="absolute left-0 top-0 p-7 text-7xl font-bold">{'<div>'}</h1>
+	<h1 data-animation="text" class="absolute bottom-0 right-0 p-7 text-7xl font-bold">{'</div>'}</h1>
 
 	<!-- hero text -->
 	<div class="z-10 p-5">

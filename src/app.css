@@ -103,6 +103,7 @@
 		background: linear-gradient(-45deg, #6bc5f8, #cf59e6, #6bc5f8, #cf59e6);
 		-webkit-background-clip: text;
 		background-clip: text;
+		color: transparent;
 		background-size: 500% auto;
 
 		animation: textAnimation 3s ease-in-out infinite alternate;
