@@ -4,8 +4,8 @@
 
 /*? animation on scroll */
 :is([data-visible='false']) {
-	/* transform: translateY(-80%);
-	opacity: 0; */
+	transform: translateY(-80%);
+	opacity: 0;
 }
 
 :is([data-visible='true']) {
@@ -23,6 +23,51 @@
 	100% {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@layer base {
+	/* font configuration */
+	@font-face {
+		font-family: 'poppins';
+		src: url(/fonts/font.woff2) format('woff2');
+		font-weight: 500;
+		font-style: normal;
+	}
+
+	/* icons configuration */
+	.icons {
+		font-family: 'Material Symbols Rounded';
+		font-weight: normal;
+		font-style: normal;
+		line-height: 1;
+		letter-spacing: normal;
+		text-transform: none;
+		white-space: nowrap;
+		word-wrap: normal;
+		direction: ltr;
+		-webkit-font-feature-settings: 'liga';
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@font-face {
+		font-family: 'Material Symbols Rounded';
+		font-style: normal;
+		font-weight: 700;
+		src: url(/fonts/icons.woff2) format('woff2');
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'poppins';
+		@apply scroll-smooth text-xl;
+	}
+
+	::-webkit-scrollbar {
+		@apply hidden;
 	}
 }
 

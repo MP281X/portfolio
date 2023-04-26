@@ -24,9 +24,4 @@
 	afterNavigate(() => (document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'));
 </script>
 
-<!-- link the css with the icons, fonts and default config -->
-<svelte:head>
-	<link rel="stylesheet" href="/style/style.css" />
-</svelte:head>
-
 <slot />
