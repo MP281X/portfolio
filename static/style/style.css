@@ -36,8 +36,6 @@
 html {
 	font-family: 'poppins';
 	@apply text-xl;
-
-	scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {

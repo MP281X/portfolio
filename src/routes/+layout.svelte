@@ -5,6 +5,7 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
+		document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth';
 		/* when a element with the data attribute "visible" is visible
 		on the screen change the attribute to run the css animation */
 		const observer = new IntersectionObserver((entries) => {
