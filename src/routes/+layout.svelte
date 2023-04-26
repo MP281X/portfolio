@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
+
 	// import the scc with the tailwind config and the custom class
 	import '../app.css';
 
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth';
 		/* when a element with the data attribute "visible" is visible
 		on the screen change the attribute to run the css animation */
 		const observer = new IntersectionObserver((entries) => {
@@ -17,6 +18,10 @@
 
 		document.querySelectorAll('[data-visible="false"]').forEach((el) => observer.observe(el));
 	});
+
+	// disable smooth scroll on page change
+	beforeNavigate(() => (document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto'));
+	afterNavigate(() => (document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth'));
 </script>
 
 <!-- link the css with the icons, fonts and default config -->
