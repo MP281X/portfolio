@@ -10,7 +10,7 @@
 
 		<br />
 
-		<span data-visible="false" class="mt-5 block text-3xl font-semibold opacity-0 sm:text-4xl" style="animation-delay: 200ms;">
+		<span data-visible="false" class="mt-5 block text-3xl font-semibold sm:text-4xl">
 			Hi, I'm a FullStack developer <br /> from Italy
 		</span>
 	</div>
