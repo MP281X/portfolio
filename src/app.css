@@ -63,7 +63,7 @@
 
 	html {
 		font-family: 'poppins';
-		@apply scroll-smooth text-xl;
+		@apply scroll-smooth;
 	}
 
 	::-webkit-scrollbar {
