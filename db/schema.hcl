@@ -41,8 +41,17 @@ table "project" {
     type = text
   }
 
+  column "paragraph" {
+    type = sql("text[]")
+
+  }
+
   column "stack" {
     type = sql("varchar(20)[]")
+  }
+
+  column "screenshot" {
+    type = sql("text[]")
   }
 
   primary_key {

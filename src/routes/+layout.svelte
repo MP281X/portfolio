@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { onMount } from 'svelte';
 	import '../app.css';
 
-	// disable smooth scroll and reset animation on page change
-	beforeNavigate(() => (document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto'));
-	afterNavigate(() => {
+	const resetAnimation = () => {
 		document.getElementsByTagName('html')[0].style.scrollBehavior = 'smooth';
 
 		/* when a element with the data attribute "visible" is visible
@@ -16,7 +15,12 @@
 				});
 			}).observe(el)
 		);
-	});
+	};
+
+	// disable smooth scroll and reset animation on page change
+	beforeNavigate(() => (document.getElementsByTagName('html')[0].style.scrollBehavior = 'auto'));
+	afterNavigate(() => resetAnimation());
+	onMount(() => resetAnimation());
 </script>
 
 <slot />

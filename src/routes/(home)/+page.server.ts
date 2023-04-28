@@ -7,7 +7,7 @@ export const load = async () => {
 	const frontend = skill.filter((x) => x.category === 'frontend');
 	const devops = skill.filter((x) => x.category === 'devops');
 
-	const project = await db.selectFrom('project').selectAll().execute();
+	const project = await db.selectFrom('project').select(['project', 'decription', 'url', 'stack']).execute();
 
 	return { skills: { backend, frontend, devops }, project };
 };

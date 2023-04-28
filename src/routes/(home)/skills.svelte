@@ -14,44 +14,20 @@
 		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 2)}> Devops </button>
 	</div>
 
-	<!-- 3 flex with a width of 100vh that contains the 3 grid -->
 	<div class="h-full overflow-x-hidden">
 		<div class="flex h-full w-[300vw] transition-all duration-300 ease-linear" style="transform: translateX(calc((100% / 3) * {selectedGroup} * -1))">
-			<!-- frontend -->
-			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.frontend as skill}
-					<div data-before={skill.name} data-visible="false">
-						<img src="/img/frontend/{skill.name}.svg" alt={skill.name} />
-						{#if skill.used}
-							<span class="icons">check_circle</span>
-						{/if}
-					</div>
-				{/each}
-			</div>
-
-			<!-- backend -->
-			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.backend as skill}
-					<div data-before={skill.name} data-visible="false">
-						<img src="/img/backend/{skill.name}.svg" alt={skill.name} />
-						{#if skill.used}
-							<span class="icons">check_circle</span>
-						{/if}
-					</div>
-				{/each}
-			</div>
-
-			<!-- devops -->
-			<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
-				{#each skills.devops as skill}
-					<div data-before={skill.name} data-visible="false">
-						<img src="/img/devops/{skill.name}.svg" alt={skill.name} />
-						{#if skill.used}
-							<span class="icons">check_circle</span>
-						{/if}
-					</div>
-				{/each}
-			</div>
+			{#each Object.entries(skills) as [_, skillList]}
+				<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
+					{#each skillList as skill}
+						<div data-before={skill.name} data-visible="false">
+							<img src="/img/{skill.category}/{skill.name}.svg" alt={skill.name} />
+							{#if skill.used}
+								<span class="icons">check_circle</span>
+							{/if}
+						</div>
+					{/each}
+				</div>
+			{/each}
 		</div>
 	</div>
 </section>

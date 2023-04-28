@@ -8,7 +8,9 @@ export interface Project {
   project: string;
   url: string;
   decription: string;
+  paragraph: string[];
   stack: string[];
+  screenshot: string[];
 }
 
 export interface Skill {

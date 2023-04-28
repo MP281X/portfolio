@@ -10,7 +10,7 @@
 			class="flex flex-col items-center justify-around gap-3 border-2 border-accent p-5 text-xl font-bold text-accent transition-[box-shadow_background] duration-300 hover:shadow-[7px_7px_#10101a]">
 			<div class="text-4xl">{project.project}</div>
 
-			<div>{project.decription}</div>
+			<div class="text-center">{project.decription}</div>
 
 			<div class="flex flex-wrap items-center justify-around gap-5">
 				{#each project.stack as stack}
