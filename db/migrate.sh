@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # load env
 source .env && clear;
 
