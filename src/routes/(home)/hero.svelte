@@ -10,8 +10,6 @@
 
 		<br />
 
-		<span data-visible="false" class="mt-5 block text-3xl font-semibold sm:text-4xl">
-			Hi, I'm a FullStack developer <br /> from Italy
-		</span>
+		<span data-visible="false" data-animation="text" class="mt-5 block text-center text-3xl font-semibold sm:text-4xl"> [ Neovim enjoyer ] </span>
 	</div>
 </section>

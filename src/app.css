@@ -104,6 +104,7 @@
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
+		padding: 4px 0px;
 		background-size: 500% auto;
 
 		animation: textAnimation 3s ease-in-out infinite alternate;
