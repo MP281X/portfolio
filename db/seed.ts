@@ -56,17 +56,22 @@ const project = async () => {
 		.insertInto('project')
 		.values([
 			{
-				project: 'Dicantieri',
-				decription: 'A management system for construction sites, suppliers, customers and warehouse',
-				url: 'dicantieri',
-				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
+				project: 'Blixter',
+				decription: 'An open source streaming platform',
+				url: 'blixter',
+				stack: ['frontend/svelteKit', 'frontend/tailwind', 'frontend/typescript', 'backend/bun', 'devops/kubernetes', 'devops/github_1'],
 				paragraph: [
-					`To improve type-safety between backend and frontend, reduce boilerplate code and improve development and maintenance times I decided to redo the 
-					project with sveltekit and postgres.`,
+					`This is my second significant full-stack project.`,
 
-					'Initially the frontend was developed in flutter web, the backend was composed of some microservices made with golang that used mongodb as database.'
+					`The frontend is built using SvelteKit, ensuring a responsive and user-friendly experience, while on the backend I utilized Bun inside a
+           container in my k3s cluster`,
+
+					`The main goal of this project was to improve my TypeScript skills by organizing my project as a monorepo for better code management.
+           I also introduced new tools like Bun for faster development, openai for text summarization/categorization and FFmpeg for multimedia processing.`,
+
+					`This project reflects my commitment to continuous learning and my desire to create efficient, user-friendly full-stack solutions.`
 				],
-				screenshot: ['aggiunta_dati.png', 'home.png', 'ricerca.png', 'visualizzazione_dati.png']
+				screenshot: ['home.png', 'login.png', 'player.png', 'profile.png', 'upload.png']
 			},
 			{
 				project: 'K3S config',
@@ -74,12 +79,29 @@ const project = async () => {
 				url: 'k3s',
 				stack: ['devops/argocd', 'devops/kubernetes', 'devops/github_1', 'devops/traefik', 'devops/longhorn'],
 				paragraph: [
-					'after using docker-compose and docker-swarm for some time i decided to migrate to kubernetes since docker lacked some features i needed',
+					`After working with docker-compose and docker-swarm for a while, I made the decision to migrate to Kubernetes due to its robust feature set 
+           and enhanced capabilities that better aligned with my project's requirements.`,
 
-					`At the moment I use argocd to manage kubernetes declaratively, selaed secrets to manage secrets, 
-					longhorn for storage and backups, traefik as ingress and tailscale to access some containers via vpn`
+					`This migration and toolset have enabled me to create a more robust and efficient infrastructure for my projects, enhancing both security and scalability.`
 				],
 				screenshot: ['ci-cd.svg', 'networking.svg', 'secrets.svg', 'storage.svg']
+			},
+			{
+				project: 'Dicantieri',
+				decription: 'A management system for construction sites, suppliers, customers and warehouse',
+				url: 'dicantieri',
+				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
+				paragraph: [
+					`In an effort to enhance my construction site management software, I initiated a substantial project transformation. 
+           Initially, the frontend was developed using Flutter Web, while the backend consisted of some Golang microservices with MongoDB as the database.`,
+
+					`Recognizing the need to establish a more seamless and type-safe connection between the frontend and backend, 
+           and to reduce the overhead of repetitive code, I decied to rebuild the project from scratch.
+           This involved transitioning to SvelteKit for the frontend, leveraging its simplicity and type-safety to create a more 
+           responsive and robust user-friendly interface. Simultaneously, I migrated the primary db to PostgreSQL which, 
+           thanks to PrismaDB, improved the type-safety and data integrity`
+				],
+				screenshot: ['aggiunta_dati.png', 'home.png', 'ricerca.png', 'visualizzazione_dati.png']
 			},
 			{
 				project: 'RomLinks',
@@ -87,26 +109,12 @@ const project = async () => {
 				url: 'romlinks',
 				stack: ['frontend/flutter', 'backend/golang', 'backend/mongodb', 'devops/docker'],
 				paragraph: [
-					'this is my first full-stack project. the frontend was done with flutter while the backend was 4 microservices done in golang',
+					`This is my first full-stack project. The frontend was developed with Flutter, while the backend consisted of four microservices built in Golang.`,
 
-					`I initially used firebase for the backend but since it didn't have the features I needed, it wasn't open-source and it
-					had a pricing model that I didn't like so I decided to redo it with golang and mongodb`
+					`I initially chose Firebase for the backend but, as the project evolved, it became clear that it lacked essential features that i wanted for my project.
+           In response, I decided to rebuild the backend using Golang and MongoDB.`
 				],
 				screenshot: ['add.webp', 'download.webp', 'home.webp', 'request.webp', 'search.webp', 'view.webp']
-			},
-			{
-				project: 'Tabellone sagra',
-				decription: 'A scoreboard for displaying team scores in real time',
-				url: 'sagra',
-				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/poketbase', 'devops/docker', 'devops/kubernetes'],
-				paragraph: [
-					`this is a simple project for displaying team scores in real time. since I had never used firebase and the project had to be 
-					developed in a short time I decided to use poketbase as a database since it already had an integrated api to get data in real time via SSE`,
-
-					`after having done the project, in order not to depend on poketbase or cloed source services for real time data management, 
-					after several tests with different services, I decided to start using redis and the redableStreams API`
-				],
-				screenshot: ['aggiornamento_punteggio.png', 'aggiunta_squadre.png', 'visualizzazione.png']
 			}
 		])
 		.execute();

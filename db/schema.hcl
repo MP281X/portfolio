@@ -1,15 +1,10 @@
 schema "public" {}
 
-enum "skillCategory" {
-  schema = schema.public
-  values = ["frontend", "backend", "devops"]
-}
-
 table "skill" {
   schema = schema.public
 
   column "category" {
-    type = enum.skillCategory
+    type = varchar(20)
   }
 
   column "name" {

@@ -14,7 +14,7 @@ export interface Project {
 }
 
 export interface Skill {
-  category: "backend" | "devops" | "frontend";
+  category: string;
   name: string;
   used: Generated<boolean>;
 }

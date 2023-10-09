@@ -25,6 +25,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>MP281X</title>
+</svelte:head>
+
 <Navbar />
 
 <Hero />

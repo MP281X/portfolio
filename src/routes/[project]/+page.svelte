@@ -4,6 +4,10 @@
 	export let data;
 </script>
 
+<svelte:head>
+	<title>{data.project}</title>
+</svelte:head>
+
 <Navbar />
 
 <div class="flex min-h-[100dvh] w-full flex-col justify-center gap-10 px-10 pb-10 pt-20 sm:px-40">
@@ -17,7 +21,7 @@
 
 	<section class="space-y-2 text-xl font-semibold text-accent">
 		{#each data.paragraph as paragraph}
-			<p>{paragraph}</p>
+			<p>{paragraph.replaceAll('\n', ' ').replaceAll('  ', ' ')}</p>
 		{/each}
 	</section>
 </div>
