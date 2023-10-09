@@ -1,7 +1,6 @@
 #? ip range 10.43.0.150-10.43.0.160
 
 resources:
-  - build.yaml
   - namespace.yaml
   - portfolio.yaml
   - postgres.yaml

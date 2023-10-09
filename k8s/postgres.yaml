@@ -13,16 +13,12 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:latest
+          image: postgres:15-alpine
           ports: [containerPort: 5432]
           env:
             - { name: POSTGRES_USER, value: postgres }
             - { name: POSTGRES_DB, value: postgres }
             - { name: POSTGRES_PASSWORD, value: postgres }
-      #     volumeMounts: [{ name: data, mountPath: /var/lib/postgresql }]
-      # volumes:
-      #   - name: data
-      #     persistentVolumeClaim: { claimName: postgres }
 
 ---
 apiVersion: v1
