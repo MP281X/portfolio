@@ -5,7 +5,7 @@
 </script>
 
 <main class="flex aspect-[210/297] w-full flex-col p-5 font-[Montserrat] text-sm">
-	<div class="mb-3 text-5xl font-bold tracking-widest">PALUDGNACH MATTEO</div>
+	<div class="mb-3 text-5xl font-bold">PALUDGNACH MATTEO</div>
 	<div class="text-2xl tracking-wider">Full-Stack Software developer</div>
 
 	<div class="my-7 w-full border-b-[0.7px] border-gray-300" />
@@ -46,11 +46,10 @@
 					SvelteKit, Flutter, Golang, Postgres, Redis and MongoDB.
 				</p>
 
-				<p>Additionally I have an interest in the DevOps, employing technologies like Docker and Kubernetes, UI/UX design and project planning.</p>
+				<p>Additionally I have an interest in DevOps, employing technologies like Docker and Kubernetes, UI/UX design and project planning.</p>
 
 				<p>
-					I am continually seeking new challenges and i like to learn new programming languages to solve any problem presented to me. My strong
-					organizational skills make me punctual and reliable in managing the projects entrusted to me.
+					I am punctual and reliable due to my initiative and organizational skills, and I endeavor to consistently bring fresh ideas to the table.
 				</p>
 			</Section>
 
