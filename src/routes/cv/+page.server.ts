@@ -25,7 +25,7 @@ export const load = async () => {
 
 	type Language = {
 		language: string;
-		level: 'native' | (string & {});
+		level: 'native' | (string & {}); // eslint-disable-line
 	};
 	const languages: Language[] = [
 		{ language: 'italian', level: 'native' },
