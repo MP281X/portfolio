@@ -16,7 +16,7 @@ export const load = async () => {
 		},
 		{
 			school: 'ISIS A. Malignani',
-			degree: 'Diploma in IT and Telecomunications',
+			degree: 'IT and Telecomunications Diploma',
 			period: '2017 - 2022',
 			vote: 68,
 			eqf: 4

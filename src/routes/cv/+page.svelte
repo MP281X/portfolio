@@ -88,6 +88,13 @@
 			</Section>
 		</section>
 	</div>
+
+	<div class="my-7 w-full border-b-[0.7px] border-gray-300" />
+
+	<p class="text-sm">
+		I authorize the processing of my personal data contained in my CV in accordance with Article 13 of Legislative Decree No. 196 of June 30, 2003 -
+		"Code regarding the protection of personal data" and Article 13 of GDPR 679/16 - "European Regulation on the protection of personal data."
+	</p>
 </main>
 
 <style>
