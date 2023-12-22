@@ -1,0 +1,37 @@
+version: '3.9'
+
+services: 
+
+  portfolio:
+    build: .
+    ports: [3000:3000]
+    restart: unless-stopped
+    networks: [portfolio_network]
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      - POSTGRES_URL=postgresql://postgres:postgres@db:5432/postgres?sslmode=disable
+
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    networks: [portfolio_network]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  # run only one time and seed the db
+  seed-db:
+    build: { dockerfile: seed-db.Dockerfile }
+    restart: no
+    networks: [portfolio_network]
+    depends_on: { db: { condition: service_healthy } }
+    environment:
+      - POSTGRES_URL=postgresql://postgres:postgres@db:5432/postgres?sslmode=disable
+
+networks: { portfolio_network: {} }
