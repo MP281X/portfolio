@@ -17,8 +17,11 @@ spec:
           image: ghcr.io/mp281x/portfolio:latest
           ports: [containerPort: 3000]
           env:
-            - { name: REDIS_URL, value: 'redis://10.43.0.150:6379' }
-            - { name: POSTGRES_URL, value: 'postgresql://postgres:postgres@10.43.0.151:5432/postgres' }
+            - { name: REDIS_URL, value: "redis://10.43.0.150:6379" }
+            - {
+                name: POSTGRES_URL,
+                value: "postgresql://postgres:postgres@10.43.0.151:5432/postgres",
+              }
 
 ---
 apiVersion: v1
@@ -31,7 +34,7 @@ spec:
   ports: [{ port: 3000, name: portfolio, targetPort: 3000 }]
 
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
   name: portfolio
