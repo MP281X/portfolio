@@ -1,19 +1,19 @@
 <script lang="ts">
-	import Section from '$lib/section.svelte';
+	import Section from '$lib/section.svelte'
 
-	export let data;
+	export let data
 </script>
 
 <main class="flex aspect-[210/297] w-full flex-col p-5 font-[Montserrat] text-sm">
 	<div class="mb-3 text-5xl font-bold">PALUDGNACH MATTEO</div>
 	<div class="text-2xl tracking-wider">Full-Stack Software developer</div>
 
-	<div class="my-7 w-full border-b-[0.7px] border-gray-300" />
+	<div class="my-7 w-full border-b-[0.7px] border-gray-300"></div>
 
 	<div class="flex w-full flex-row">
 		<section class="flex w-[35%] flex-col">
 			<Section title="skills">
-				{#each data.skills as { type, languages }}
+				{#each data.skills as { languages, type }}
 					<div class="flex flex-col">
 						<div class="font-bold">{type.toUpperCase()}</div>
 						<div>{languages.join(' - ')}</div>
@@ -22,7 +22,7 @@
 			</Section>
 
 			<Section title="contacts">
-				{#each data.contacts as { text, icon }}
+				{#each data.contacts as { icon, text }}
 					<div class="flex flex-row items-center justify-start gap-2">
 						<span class="icons">{icon}</span>
 						<div>{text}</div>
@@ -30,14 +30,14 @@
 				{/each}
 			</Section>
 
-			<Section title="languages" divider={false}>
+			<Section title="languages" showDivider={false}>
 				{#each data.languages as { language, level }}
 					<div><span class="font-bold">{language.toUpperCase()}</span> - {level}</div>
 				{/each}
 			</Section>
 		</section>
 
-		<div class="mx-7 h-full border-l-[0.7px] border-gray-300" />
+		<div class="mx-7 h-full border-l-[0.7px] border-gray-300"></div>
 
 		<section class="flex w-[65%] flex-col">
 			<Section title="summary">
@@ -54,7 +54,7 @@
 			</Section>
 
 			<Section title="work experience">
-				{#each data.works as { company_name, type, period, location, job_position }}
+				{#each data.works as { company_name, job_position, location, period, type }}
 					<div class="flex flex-col">
 						<div class="row flex flex-row items-center justify-between">
 							<div class="font-bold">{company_name.toUpperCase()} {type === 'stage' ? '(stage)' : ''}</div>
@@ -69,8 +69,8 @@
 				{/each}
 			</Section>
 
-			<Section title="education" divider={false}>
-				{#each data.educations as { degree, school, period, vote, eqf }}
+			<Section title="education" showDivider={false}>
+				{#each data.educations as { degree, eqf, period, school, vote }}
 					<div class="flex flex-col">
 						<div class="row flex flex-row items-center justify-between">
 							<div class="font-bold">{school}</div>
@@ -89,7 +89,7 @@
 		</section>
 	</div>
 
-	<div class="my-7 w-full border-b-[0.7px] border-gray-300" />
+	<div class="my-7 w-full border-b-[0.7px] border-gray-300"></div>
 
 	<p class="text-sm">
 		I authorize the processing of my personal data contained in my CV in accordance with Article 13 of Legislative Decree No. 196 of June 30, 2003 -

@@ -1,13 +1,13 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
+	plugins: [],
 	theme: {
 		extend: {
 			colors: {
 				accent: '#10101a',
-				secondary: '#19192b',
-				border: '#272740'
+				border: '#272740',
+				secondary: '#19192b'
 			}
 		}
-	},
-	plugins: []
-};
+	}
+}

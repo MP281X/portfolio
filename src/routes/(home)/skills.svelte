@@ -1,26 +1,26 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	export let skills: PageData['skills'];
+	import type { PageData } from './$types'
+	export let skills: PageData['skills']
 
-	let selectedGroup = 0;
+	let selectedGroup = 0
 </script>
 
 <!-- my skills -->
 <section id="skills" class="flex h-screen flex-col bg-accent text-white">
 	<!-- buttons -->
 	<div class="flex flex-wrap items-center justify-center gap-10 p-10">
-		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 0)}> Frontend </button>
-		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 1)}> Backend </button>
-		<button data-visible="false" class="btn-white" on:click={() => (selectedGroup = 2)}> Devops </button>
+		<button on:click={() => (selectedGroup = 0)} class="btn-white" data-visible="false"> Frontend </button>
+		<button on:click={() => (selectedGroup = 1)} class="btn-white" data-visible="false"> Backend </button>
+		<button on:click={() => (selectedGroup = 2)} class="btn-white" data-visible="false"> Devops </button>
 	</div>
 
 	<div class="h-full overflow-x-hidden">
 		<div class="flex h-full w-[300vw] transition-all duration-300 ease-linear" style="transform: translateX(calc((100% / 3) * {selectedGroup} * -1))">
-			{#each Object.entries(skills) as [_, skillList]}
+			{#each Object.values(skills) as skillList}
 				<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
 					{#each skillList as skill}
-						<div data-before={skill.name} data-visible="false">
-							<img src="/img/{skill.category}/{skill.name}.svg" alt={skill.name} />
+						<div data-visible="false" data-before={skill.name}>
+							<img alt={skill.name} src="/img/{skill.category}/{skill.name}.svg" />
 							{#if skill.used}
 								<span class="icons">check_circle</span>
 							{/if}

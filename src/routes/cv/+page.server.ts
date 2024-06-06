@@ -1,83 +1,91 @@
-export const load = async () => {
+/* eslint-disable @typescript-eslint/naming-convention */
+export const load = () => {
 	type Education = {
-		school: string;
-		degree: string;
-		period: `${number} - ${number}`;
-		vote: number | undefined;
-		eqf: number;
-	};
+		eqf: number
+		school: string
+		degree: string
+		vote: number | undefined
+		period: `${number} - ${number}`
+	}
 	const educations: Education[] = [
 		{
-			school: 'ITS Alto Adriatico',
 			degree: 'Tecnico Superiore Cloud Developer',
+			eqf: 5,
 			period: '2022 - 2024',
-			vote: undefined,
-			eqf: 5
+			school: 'ITS Alto Adriatico',
+			vote: undefined
 		},
 		{
-			school: 'ISIS A. Malignani',
 			degree: 'IT and Telecomunications Diploma',
+			eqf: 4,
 			period: '2017 - 2022',
-			vote: 68,
-			eqf: 4
+			school: 'ISIS A. Malignani',
+			vote: 68
 		}
-	];
+	]
 
 	type Language = {
-		language: string;
-		level: 'native' | (string & {}); // eslint-disable-line
-	};
+		language: string
+		level: 'native' | (string & {}) // eslint-disable-line
+	}
 	const languages: Language[] = [
 		{ language: 'italian', level: 'native' },
 		{ language: 'english', level: 'B2' }
-	];
+	]
 
 	type Work = {
-		company_name: string;
-		job_position: string;
-		type: 'stage' | 'work';
-		location: `${string} (${string})`;
-		period: `${number}/${number}/${number} - ${number}/${number}/${number}`;
-	};
+		company_name: string
+		job_position: string
+		type: 'work' | 'internship'
+		location: `${string} (${string})`
+		period: `${number}/${number}/${number} - ${number}/${number}/${number}`
+	}
 	const works: Work[] = [
 		{
+			company_name: 'Altitudo',
+			job_position: 'Frontend Developer',
+			location: 'Salzburg (AU)',
+			period: '08/01/2024 - 28/03/2024',
+			type: 'internship'
+		},
+		{
 			company_name: 'Bizaway',
-			period: '12/06/2023 - 04/08/2023',
+			job_position: 'Backend Developer',
 			location: 'Spilimbergo (IT)',
-			type: 'stage',
-			job_position: 'Backend Developer'
+			period: '12/06/2023 - 04/08/2023',
+			type: 'internship'
 		},
 		{
 			company_name: 'Nordest Servizi',
-			period: '17/01/2022 - 29/01/2022',
+			job_position: 'System Engineer',
 			location: 'Tavagnacco (IT)',
-			type: 'stage',
-			job_position: 'System Engineer'
+			period: '17/01/2022 - 29/01/2022',
+			type: 'internship'
 		}
-	];
+	]
 
 	type Skill = {
-		type: 'frontend' | 'backend' | 'devops' | 'databases';
-		languages: string[];
-	};
+		languages: string[]
+		type: 'devops' | 'backend' | 'frontend' | 'databases'
+	}
 	const skills: Skill[] = [
-		{ type: 'frontend', languages: ['sveltekit', 'tailwind', 'flutter'] },
-		{ type: 'backend', languages: ['typescript', 'golang'] },
-		{ type: 'devops', languages: ['github actions', 'argocd', 'kubernetes'] },
-		{ type: 'databases', languages: ['postgres', 'redis', 'mongodb'] }
-	];
+		{ languages: ['sveltekit', 'tailwind', 'flutter'], type: 'frontend' },
+		{ languages: ['typescript', 'golang'], type: 'backend' },
+		{ languages: ['github actions', 'argocd', 'kubernetes'], type: 'devops' },
+		{ languages: ['postgres', 'redis', 'mongodb'], type: 'databases' }
+	]
 
 	type Contact = {
-		text: string;
-		icon: string;
-	};
+		text: string
+		icon: string
+	}
 	const contacts: Contact[] = [
 		{ icon: 'smartphone', text: '+39 3518853376' },
 		{ icon: 'email', text: 'paludgnachmatteo.dev@gmail.com' },
 		{ icon: 'http', text: 'portfolio.mp281x.xyz' },
 		{ icon: 'code_blocks', text: 'github.com/MP281X' },
 		{ icon: 'map', text: 'Moimacco (UD)' }
-	];
+	]
 
-	return { educations, languages, works, skills, contacts };
-};
+	return { contacts, educations, languages, skills, works }
+}

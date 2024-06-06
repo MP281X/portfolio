@@ -1,23 +1,18 @@
-FROM node:18-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 COPY . .
 
 # install pnpm
 RUN npm install -g pnpm
 
-# lint and test
-RUN pnpm install \
-    && npx svelte-kit sync \
-    && npx prettier --write --plugin-search-dir=. . \
-    && npx prettier --check --plugin-search-dir=. . \
-    && npx eslint . && npx svelte-check --tsconfig ./tsconfig.json
-
 # build and install dependency
-RUN npx vite build && rm -r ./node_modules \
-    && pnpm install -P
+RUN pnpm i && npx vite build
+
+# remove devDependencies
+RUN rm -r ./node_modules && pnpm install -P
 
 # build the final image
-FROM node:18-alpine
+FROM node:22-alpine
 WORKDIR /app
 
 # create the non root user

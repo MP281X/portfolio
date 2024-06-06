@@ -1,16 +1,30 @@
-import { Kysely, PostgresDialect } from 'kysely';
-import type { DB } from '../src/lib/db.d';
-import pg from 'pg';
-
-const db = new Kysely<DB>({
-	dialect: new PostgresDialect({
-		pool: new pg.Pool({
-			connectionString: process.env.POSTGRES_URL
-		})
-	})
-});
+import { db } from '../src/lib/db'
 
 const skill = async () => {
+	await db
+		.insertInto('skill')
+		.values([
+			{ category: 'devops', name: 'argocd', used: true },
+			{ category: 'devops', name: 'longhorn', used: false },
+			{ category: 'devops', name: 'kubernetes', used: true },
+			{ category: 'devops', name: 'traefik', used: true },
+			{ category: 'devops', name: 'github', used: true },
+			{ category: 'devops', name: 'docker', used: true }
+		])
+		.execute()
+
+	await db
+		.insertInto('skill')
+		.values([
+			{ category: 'backend', name: 'redis', used: true },
+			{ category: 'backend', name: 'postgresql', used: true },
+			{ category: 'backend', name: 'nodejs', used: true },
+			{ category: 'backend', name: 'mongodb', used: false },
+			{ category: 'backend', name: 'golang', used: false },
+			{ category: 'backend', name: 'dart', used: false }
+		])
+		.execute()
+
 	await db
 		.insertInto('skill')
 		.values([
@@ -19,47 +33,20 @@ const skill = async () => {
 			{ category: 'frontend', name: 'tailwind', used: true },
 			{ category: 'frontend', name: 'css', used: true },
 			{ category: 'frontend', name: 'html', used: true },
-			{ category: 'frontend', name: 'flutter', used: true }
+			{ category: 'frontend', name: 'flutter', used: false }
 		])
-		.execute();
+		.execute()
 
-	await db
-		.insertInto('skill')
-		.values([
-			{ category: 'backend', name: 'redis', used: true },
-			{ category: 'backend', name: 'postgresql', used: true },
-			{ category: 'backend', name: 'nodejs', used: true },
-			{ category: 'backend', name: 'mongodb' },
-			{ category: 'backend', name: 'golang' },
-			{ category: 'backend', name: 'dart' }
-		])
-		.execute();
-
-	await db
-		.insertInto('skill')
-		.values([
-			{ category: 'devops', name: 'argocd', used: true },
-			{ category: 'devops', name: 'longhorn', used: true },
-			{ category: 'devops', name: 'kubernetes', used: true },
-			{ category: 'devops', name: 'traefik', used: true },
-			{ category: 'devops', name: 'github', used: true },
-			{ category: 'devops', name: 'docker', used: true }
-		])
-		.execute();
-
-	const data = await db.selectFrom('skill').selectAll().execute();
-	console.table(data);
-};
+	const data = await db.selectFrom('skill').selectAll().execute()
+	console.table(data)
+}
 
 const project = async () => {
 	await db
 		.insertInto('project')
 		.values([
 			{
-				project: 'Blixter',
 				decription: 'An open source streaming platform',
-				url: 'blixter',
-				stack: ['frontend/svelteKit', 'frontend/tailwind', 'frontend/typescript', 'backend/bun', 'devops/kubernetes', 'devops/github_1'],
 				paragraph: [
 					`This is my second significant full-stack project.`,
 
@@ -71,26 +58,26 @@ const project = async () => {
 
 					`This project reflects my commitment to continuous learning and my desire to create efficient, user-friendly full-stack solutions.`
 				],
-				screenshot: ['home.png', 'login.png', 'player.png', 'profile.png', 'upload.png']
+				project: 'Blixter',
+				screenshot: ['home.png', 'login.png', 'player.png', 'profile.png', 'upload.png'],
+				stack: ['frontend/svelteKit', 'frontend/tailwind', 'frontend/typescript', 'backend/bun', 'devops/kubernetes', 'devops/github_1'],
+				url: 'blixter'
 			},
 			{
-				project: 'K3S config',
 				decription: 'The configuration file for my k3s cluster',
-				url: 'k3s',
-				stack: ['devops/argocd', 'devops/kubernetes', 'devops/github_1', 'devops/traefik', 'devops/longhorn'],
 				paragraph: [
 					`After working with docker-compose and docker-swarm for a while, I made the decision to migrate to Kubernetes due to its robust feature set 
            and enhanced capabilities that better aligned with my project's requirements.`,
 
 					`This migration and toolset have enabled me to create a more robust and efficient infrastructure for my projects, enhancing both security and scalability.`
 				],
-				screenshot: ['ci-cd.svg', 'networking.svg', 'secrets.svg', 'storage.svg']
+				project: 'K3S config',
+				screenshot: ['ci-cd.svg', 'networking.svg', 'secrets.svg', 'storage.svg'],
+				stack: ['devops/argocd', 'devops/kubernetes', 'devops/github_1', 'devops/traefik', 'devops/longhorn'],
+				url: 'k3s'
 			},
 			{
-				project: 'Dicantieri',
 				decription: 'A management system for construction sites, suppliers, customers and warehouse',
-				url: 'dicantieri',
-				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
 				paragraph: [
 					`In an effort to enhance my construction site management software, I initiated a substantial project transformation. 
            Initially, the frontend was developed using Flutter Web, while the backend consisted of some Golang microservices with MongoDB as the database.`,
@@ -101,32 +88,35 @@ const project = async () => {
            responsive and robust user-friendly interface. Simultaneously, I migrated the primary db to PostgreSQL which, 
            thanks to PrismaDB, improved the type-safety and data integrity`
 				],
-				screenshot: ['aggiunta_dati.png', 'home.png', 'ricerca.png', 'visualizzazione_dati.png']
+				project: 'Dicantieri',
+				screenshot: ['aggiunta_dati.png', 'home.png', 'ricerca.png', 'visualizzazione_dati.png'],
+				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
+				url: 'dicantieri'
 			},
 			{
-				project: 'RomLinks',
 				decription: 'An app to help users to find and download custom rom for their devices',
-				url: 'romlinks',
-				stack: ['frontend/flutter', 'backend/golang', 'backend/mongodb', 'devops/docker'],
 				paragraph: [
 					`This is my first full-stack project. The frontend was developed with Flutter, while the backend consisted of four microservices built in Golang.`,
 
 					`I initially chose Firebase for the backend but, as the project evolved, it became clear that it lacked essential features that i wanted for my project.
            In response, I decided to rebuild the backend using Golang and MongoDB.`
 				],
-				screenshot: ['add.webp', 'download.webp', 'home.webp', 'request.webp', 'search.webp', 'view.webp']
+				project: 'RomLinks',
+				screenshot: ['add.webp', 'download.webp', 'home.webp', 'request.webp', 'search.webp', 'view.webp'],
+				stack: ['frontend/flutter', 'backend/golang', 'backend/mongodb', 'devops/docker'],
+				url: 'romlinks'
 			}
 		])
-		.execute();
-	const data = await db.selectFrom('project').selectAll().execute();
-	console.table(data.map(({ stack, decription, paragraph, screenshot, ...x }) => x)); // eslint-disable-line @typescript-eslint/no-unused-vars
-};
+		.execute()
+	const data = await db.selectFrom('project').selectAll().execute()
+	console.table(data.map(({ decription, paragraph, screenshot, stack, ...x }) => x))
+}
 
 const main = async () => {
-	await skill();
-	await project();
+	await skill()
+	await project()
 
-	await db.destroy();
-};
+	await db.destroy()
+}
 
-main();
+await main()

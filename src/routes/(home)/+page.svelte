@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Navbar from '$lib/navbar.svelte';
-	import Hero from './hero.svelte';
-	import Skills from './skills.svelte';
-	import Project from './project.svelte';
-	import Footer from './footer.svelte';
+	import Hero from './hero.svelte'
+	import Skills from './skills.svelte'
+	import Footer from './footer.svelte'
+	import Project from './project.svelte'
+	import Navbar from '$lib/navbar.svelte'
 
-	export let data;
+	export let data
 </script>
 
 <svelte:head>
