@@ -24,10 +24,11 @@
 
 		"vite": "latest",
 		"tslib": "latest",
-		"ts-node": "^10.9.2",
-		"typescript": "latest",
 
-		"@ariga/atlas": "latest",
+		"ts-node": "^10",
+		"typescript": "^5",
+
+		"@ariga/atlas": "^0",
 		"kysely-codegen": "^0",
 
 		"postcss": "^8",
