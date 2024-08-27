@@ -1,6 +1,6 @@
+import { Kysely, PostgresDialect } from 'kysely'
 // @ts-expect-error
 import pg from 'pg'
-import { Kysely, PostgresDialect } from 'kysely'
 
 import type { DB } from './db.g'
 

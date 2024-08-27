@@ -1,5 +1,4 @@
 {
 	"extends": ["@mp281x/shared-config/tsconfig", "./.svelte-kit/tsconfig.json"],
-	"include": ["src/**/*", "*.config.*", "scripts/seed.ts"],
-	"exclude": ["**/node_modules", "**/.*/", "**/dist"]
+	"include": ["src/**/*", "*.config.*", "scripts/seed.ts"]
 }

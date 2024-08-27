@@ -4,12 +4,11 @@
 
 	"scripts": {
 		"dev": "x vite dev",
-		"fix": "shared-config-fix",
-		"lint": "shared-config-lint",
+		"preview": "x vite build && node ./build",
 
-		"setup": "sh ./scripts/setup.sh",
-
-		"preview": "x vite build && node ./build"
+		"fix": "x fix",
+		"check": "x check",
+		"setup": "x setup"
 	},
 
 	"devDependencies": {
@@ -36,7 +35,5 @@
 	"dependencies": {
 		"pg": "^8.12.0",
 		"kysely": "^0.27.3"
-	},
-
-	"pnpm": { "peerdependencyrules": { "allowedversions": { "eslint": "*" } } }
+	}
 }

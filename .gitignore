@@ -1,12 +1,15 @@
-# svelte/next files
-**/build
+# svelte/next
 **/.svelte-kit
 **/.next
 **/next-env.d.ts
 
+# build output
+**/dist
+**/build
+
 # generated files
 **/*.g.ts
-**/.eslintcache
+**/.codegen/**/*
 **/*.tsbuildinfo
 
 # vite
