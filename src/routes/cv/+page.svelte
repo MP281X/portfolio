@@ -1,12 +1,14 @@
 <script lang="ts">
-	import Section from '$lib/section.svelte'
+	import Section from "$lib/section.svelte";
 
-	export let data
+	export let data;
 </script>
 
-<main class="flex aspect-[210/297] w-full flex-col p-5 font-[Montserrat] text-sm">
+<main
+	class="flex aspect-[210/297] w-full flex-col p-5 font-[Montserrat] text-sm"
+>
 	<div class="mb-3 text-5xl font-bold">PALUDGNACH MATTEO</div>
-	<div class="text-2xl tracking-wider">Full-Stack Software developer</div>
+	<div class="text-2xl tracking-wider">Full-Stack developer</div>
 
 	<div class="my-7 w-full border-b-[0.7px] border-gray-300"></div>
 
@@ -16,7 +18,7 @@
 				{#each data.skills as { languages, type }}
 					<div class="flex flex-col">
 						<div class="font-bold">{type.toUpperCase()}</div>
-						<div>{languages.join(' - ')}</div>
+						<div>{languages.join(" - ")}</div>
 					</div>
 				{/each}
 			</Section>
@@ -32,7 +34,9 @@
 
 			<Section title="languages" showDivider={false}>
 				{#each data.languages as { language, level }}
-					<div><span class="font-bold">{language.toUpperCase()}</span> - {level}</div>
+					<div>
+						<span class="font-bold">{language.toUpperCase()}</span> - {level}
+					</div>
 				{/each}
 			</Section>
 		</section>
@@ -42,14 +46,19 @@
 		<section class="flex w-[65%] flex-col">
 			<Section title="summary">
 				<p>
-					For several years I have been deeply passionate about web, application and API development by utilizing technologies such as Typescript,
+					For several years I have been deeply passionate about web, application
+					and API development by utilizing technologies such as Typescript,
 					SvelteKit, Flutter, Golang, Postgres, Redis and MongoDB.
 				</p>
 
-				<p>Additionally I have an interest in DevOps, employing technologies like Docker and Kubernetes, UI/UX design and project planning.</p>
+				<p>
+					Additionally I have an interest in DevOps, employing technologies like
+					Docker and Kubernetes, UI/UX design and project planning.
+				</p>
 
 				<p>
-					I am punctual and reliable due to my initiative and organizational skills, and I endeavor to consistently bring fresh ideas to the table.
+					I am punctual and reliable due to my initiative and organizational
+					skills, and I endeavor to consistently bring fresh ideas to the table.
 				</p>
 			</Section>
 
@@ -57,7 +66,10 @@
 				{#each data.works as { company_name, job_position, location, period, type }}
 					<div class="flex flex-col">
 						<div class="row flex flex-row items-center justify-between">
-							<div class="font-bold">{company_name.toUpperCase()} {type === 'stage' ? '(stage)' : ''}</div>
+							<div class="font-bold">
+								{company_name.toUpperCase()}
+								{type === "stage" ? "(stage)" : ""}
+							</div>
 							<div>{period}</div>
 						</div>
 
@@ -78,7 +90,7 @@
 						</div>
 
 						<div class="row flex flex-row items-center justify-between">
-							<div>Final vote: {vote ? vote : '--'}</div>
+							<div>Final vote: {vote ? vote : "--"}</div>
 							<div>EQF: {eqf}</div>
 						</div>
 
@@ -92,11 +104,13 @@
 	<div class="my-7 w-full border-b-[0.7px] border-gray-300"></div>
 
 	<p class="text-sm">
-		I authorize the processing of my personal data contained in my CV in accordance with Article 13 of Legislative Decree No. 196 of June 30, 2003 -
-		"Code regarding the protection of personal data" and Article 13 of GDPR 679/16 - "European Regulation on the protection of personal data."
+		I authorize the processing of my personal data contained in my CV in
+		accordance with Article 13 of Legislative Decree No. 196 of June 30, 2003 -
+		"Code regarding the protection of personal data" and Article 13 of GDPR
+		679/16 - "European Regulation on the protection of personal data."
 	</p>
 </main>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+	@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 </style>

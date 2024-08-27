@@ -13,7 +13,7 @@ export const load = () => {
 			eqf: 5,
 			period: '2022 - 2024',
 			school: 'ITS Alto Adriatico',
-			vote: undefined
+			vote: 95
 		},
 		{
 			degree: 'IT and Telecomunications Diploma',
@@ -30,7 +30,7 @@ export const load = () => {
 	}
 	const languages: Language[] = [
 		{ language: 'italian', level: 'native' },
-		{ language: 'english', level: 'B2' }
+		{ language: 'english', level: 'C1' }
 	]
 
 	type Work = {
@@ -70,8 +70,8 @@ export const load = () => {
 	}
 	const skills: Skill[] = [
 		{ languages: ['sveltekit', 'tailwind', 'flutter'], type: 'frontend' },
-		{ languages: ['typescript', 'golang'], type: 'backend' },
-		{ languages: ['github actions', 'argocd', 'kubernetes'], type: 'devops' },
+		{ languages: ['node.js', 'golang'], type: 'backend' },
+		{ languages: ['docker', 'kubernetes', 'github actions'], type: 'devops' },
 		{ languages: ['postgres', 'redis', 'mongodb'], type: 'databases' }
 	]
 
