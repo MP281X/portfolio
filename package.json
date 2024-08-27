@@ -8,8 +8,10 @@
 
 		"fix": "x fix",
 		"check": "x check",
-		"setup": "x setup"
+		"setup": "sh ./scripts/setup.sh"
 	},
+
+	"dependencies": { "pg": "^8", "kysely": "^0" },
 
 	"devDependencies": {
 		"@mp281x/shared-config": "latest",
@@ -25,15 +27,11 @@
 		"ts-node": "^10.9.2",
 		"typescript": "latest",
 
-		"kysely-codegen": "^0.15.0",
+		"@ariga/atlas": "latest",
+		"kysely-codegen": "^0",
 
-		"postcss": "^8.4.38",
-		"tailwindcss": "^3.4.4",
-		"autoprefixer": "^10.4.19"
-	},
-
-	"dependencies": {
-		"pg": "^8.12.0",
-		"kysely": "^0.27.3"
+		"postcss": "^8",
+		"tailwindcss": "^3",
+		"autoprefixer": "^10"
 	}
 }

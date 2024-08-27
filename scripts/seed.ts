@@ -115,6 +115,7 @@ const project = async () => {
 			}
 		])
 		.execute()
+
 	const data = await db.selectFrom('project').selectAll().execute()
 	console.table(data.map(({ decription, paragraph, screenshot, stack, ...x }) => x))
 }

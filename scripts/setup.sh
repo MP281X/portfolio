@@ -11,12 +11,12 @@ log() {
 }
 
 log "DB MIGRATION"
-atlas schema fmt scripts/schema.hcl;
-atlas schema clean --auto-approve -u $POSTGRES_URL;
-atlas schema apply --auto-approve -u $POSTGRES_URL --to file://scripts/schema.hcl;
+pnpm atlas schema fmt scripts/schema.hcl;
+pnpm atlas schema clean --auto-approve -u $POSTGRES_URL;
+pnpm atlas schema apply --auto-approve -u $POSTGRES_URL --to file://scripts/schema.hcl;
 
 log "DB TYPES"
 pnpm x kysely-codegen --dialect postgres --out-file ./src/lib/db.g.ts --url $POSTGRES_URL;
 
 log "DB SEED"
-export POSTGRES_URL=$POSTGRES_URL && x scripts/seed.ts;
+export POSTGRES_URL=$POSTGRES_URL && node --experimental-strip-types scripts/seed.ts;
