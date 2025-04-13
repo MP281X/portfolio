@@ -20,7 +20,11 @@
 				<div class="grid w-screen grid-cols-2 grid-rows-3 gap-5 p-5 sm:grid-cols-3 sm:grid-rows-2 sm:gap-10 sm:p-10">
 					{#each skillList as skill}
 						<div data-visible="false" data-before={skill.name}>
-							<img alt={skill.name} src="/img/{skill.category}/{skill.name}.svg" />
+							<img
+								alt={skill.name}
+								class="w-[65%]"
+								src="/img/{skill.category}/{skill.name}.svg"
+							/>
 							{#if skill.used}
 								<span class="icons">check_circle</span>
 							{/if}
