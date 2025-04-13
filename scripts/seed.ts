@@ -16,23 +16,23 @@ const skill = async () => {
 	await db
 		.insertInto('skill')
 		.values([
-			{ category: 'backend', name: 'redis', used: true },
-			{ category: 'backend', name: 'postgresql', used: true },
 			{ category: 'backend', name: 'nodejs', used: true },
-			{ category: 'backend', name: 'mongodb', used: false },
+			{ category: 'backend', name: 'kotlin', used: true },
 			{ category: 'backend', name: 'golang', used: false },
-			{ category: 'backend', name: 'dart', used: false }
+			{ category: 'backend', name: 'postgresql', used: true },
+			{ category: 'backend', name: 'redis', used: true },
+			{ category: 'backend', name: 'mongodb', used: false },
 		])
 		.execute()
 
 	await db
 		.insertInto('skill')
 		.values([
-			{ category: 'frontend', name: 'svelteKit', used: true },
-			{ category: 'frontend', name: 'typescript', used: true },
+			{ category: 'frontend', name: 'react', used: true },
+			{ category: 'frontend', name: 'svelte', used: false },
 			{ category: 'frontend', name: 'tailwind', used: true },
-			{ category: 'frontend', name: 'css', used: true },
-			{ category: 'frontend', name: 'html', used: true },
+			{ category: 'frontend', name: 'radix', used: true },
+			{ category: 'frontend', name: 'typescript', used: true },
 			{ category: 'frontend', name: 'flutter', used: false }
 		])
 		.execute()
@@ -61,7 +61,7 @@ const project = async () => {
 				project: 'Blixter',
 				screenshot: ['home.png', 'login.png', 'player.png', 'profile.png', 'upload.png'],
 				stack: [
-					'frontend/svelteKit',
+					'frontend/svelte',
 					'frontend/tailwind',
 					'frontend/typescript',
 					'backend/bun',
@@ -97,7 +97,7 @@ const project = async () => {
 				],
 				project: 'Dicantieri',
 				screenshot: ['aggiunta_dati.png', 'home.png', 'ricerca.png', 'visualizzazione_dati.png'],
-				stack: ['frontend/svelteKit', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
+				stack: ['frontend/svelte', 'frontend/tailwind', 'backend/postgresql', 'devops/docker', 'devops/railway'],
 				url: 'dicantieri'
 			},
 			{
