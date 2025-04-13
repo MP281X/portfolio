@@ -48,7 +48,7 @@
 				<p>
 					For several years I have been deeply passionate about web, application
 					and API development by utilizing technologies such as Typescript,
-					SvelteKit, Flutter, Golang, Postgres, Redis and MongoDB.
+					Svelte, React, Flutter, Golang, Postgres, Redis and MongoDB.
 				</p>
 
 				<p>
@@ -66,9 +66,11 @@
 				{#each data.works as { company_name, job_position, location, period, type }}
 					<div class="flex flex-col">
 						<div class="row flex flex-row items-center justify-between">
-							<div class="font-bold">
+							<div class="font-bold flex justify-start items-center">
 								{company_name.toUpperCase()}
-								{type === "stage" ? "(stage)" : ""}
+								<p class="pl-1 text-xs font-normal">
+									{type === "work" ? "" : "(" + type + ")"}
+								</p>
 							</div>
 							<div>{period}</div>
 						</div>

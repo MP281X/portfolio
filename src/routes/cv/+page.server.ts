@@ -36,17 +36,24 @@ export const load = () => {
 	type Work = {
 		company_name: string
 		job_position: string
-		type: 'work' | 'internship'
+		type: 'work' | 'internship' | "erasmus"
 		location: `${string} (${string})`
-		period: `${number}/${number}/${number} - ${number}/${number}/${number}`
+		period: `${number}/${number}/${number} - ${number | "__"}/${number | "__"}/${number | "____"}`
 	}
 	const works: Work[] = [
+		{
+			company_name: 'Tinexta Cyber',
+			job_position: 'Full-Stack Developer',
+			location: 'Udine (UD)',
+			period: '01/10/2024 - __/__/____',
+			type: 'work'
+		},
 		{
 			company_name: 'Altitudo',
 			job_position: 'Frontend Developer',
 			location: 'Salzburg (AU)',
 			period: '08/01/2024 - 28/03/2024',
-			type: 'internship'
+			type: 'erasmus'
 		},
 		{
 			company_name: 'Bizaway',
@@ -69,7 +76,7 @@ export const load = () => {
 		type: 'devops' | 'backend' | 'frontend' | 'databases'
 	}
 	const skills: Skill[] = [
-		{ languages: ['sveltekit', 'tailwind', 'flutter'], type: 'frontend' },
+		{ languages: ['svelte', "react", 'tailwind', 'flutter'], type: 'frontend' },
 		{ languages: ['node.js', 'golang'], type: 'backend' },
 		{ languages: ['docker', 'kubernetes', 'github actions'], type: 'devops' },
 		{ languages: ['postgres', 'redis', 'mongodb'], type: 'databases' }

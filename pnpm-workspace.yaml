@@ -1,0 +1,4 @@
+onlyBuiltDependencies:
+  - '@ariga/atlas'
+  - '@biomejs/biome'
+  - esbuild
