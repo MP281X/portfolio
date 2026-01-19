@@ -1,0 +1,60 @@
+{
+	"type": "module",
+	"name": "portfolio",
+
+	"scripts": {
+		"dev": "vite dev --port 3000",
+		"build": "vite build --emptyOutDir",
+
+		"fix": "biome check --write",
+		"check": "tsgo --noEmit && biome check"
+	},
+
+	"dependencies": {
+		"effect": "latest",
+		"@effect-atom/atom-react": "latest",
+
+		"react": "^19",
+		"react-dom": "^19",
+
+		"cmdk": "latest",
+		"sonner": "latest",
+		"@base-ui/react": "^1",
+		"lucide-react": "latest",
+		"react-resizable-panels": "latest",
+		"@fontsource-variable/jetbrains-mono": "latest",
+
+		"@tanstack/react-start": "^1",
+		"@tanstack/react-router": "^",
+		"@tanstack/router-plugin": "^1",
+		"@tanstack/react-router-ssr-query": "^1",
+
+		"clsx": "latest",
+		"tailwind-merge": "latest",
+		"tw-animate-css": "latest",
+		"class-variance-authority": "latest"
+	},
+
+	"devDependencies": {
+		"typescript": "latest",
+		"@biomejs/biome": "latest",
+		"@effect/language-service": "latest",
+		"@typescript/native-preview": "latest",
+
+		"@types/bun": "latest",
+		"@types/react": "^19",
+		"@types/react-dom": "^19",
+
+		"jsdom": "latest",
+		"web-vitals": "latest",
+
+		"shadcn": "latest",
+		"tailwindcss": "^4",
+		"@tailwindcss/vite": "^4",
+
+		"nitro": "latest",
+		"vite": "^8.0.0-beta.7",
+		"@vitejs/plugin-react": "latest",
+		"babel-plugin-react-compiler": "latest"
+	}
+}

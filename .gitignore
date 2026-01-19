@@ -1,0 +1,13 @@
+**/.env
+**/.env.*
+!**/.env.example
+
+# build output & cache
+**/.output
+**/*.tsbuildinfo
+
+# packages
+**/node_modules
+
+# cloned repos (docs)
+**/.repos

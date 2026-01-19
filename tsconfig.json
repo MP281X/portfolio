@@ -1,0 +1,53 @@
+{
+	"compilerOptions": {
+		// effect-ts lsp
+		"plugins": [{ "name": "@effect/language-service" }],
+
+		"types": ["vite/client"],
+		"paths": { "@/*": ["./src/*"] },
+
+		// type checking
+		"strict": true, // enable all type checking
+		"noUnusedLocals": true, // disable unused variables
+		"noErrorTruncation": true, // show full error messages without truncation
+		"noImplicitReturns": true, // check that every code path has the correct return type
+		"noUnusedParameters": true, // disable unused function parameters
+		"noImplicitOverride": true, // don't override class methods without the override keyword
+		"allowUnusedLabels": false, // mostly typos if found
+		"allowUnreachableCode": false, // don't allow unreachable code
+		"noUncheckedIndexedAccess": true, // when you access an element of an array at a specific index the type is (arrayType | undefined)
+		"noFallthroughCasesInSwitch": true, // check that every statement in the swtich is valid
+		"exactOptionalPropertyTypes": false, // allow setting optional properties to undefined unless explicitly typed
+		"noPropertyAccessFromIndexSignature": true, // allow not defined key to be accessed only by obj["key_name"]
+
+		// ts version and module resolution (use the lasted ts/js features and types)
+		"lib": ["ESNext", "dom", "dom.iterable"],
+		"jsx": "react-jsx",
+		"target": "ESNext",
+		"module": "ESNext",
+		"moduleDetection": "force",
+		"moduleResolution": "bundler",
+
+		// imports / type checking and parsing / ...
+		"allowJs": true, // don't allow js file import
+		"checkJs": true, // type check js files
+		"skipLibCheck": true, // don't check .d.ts files
+		"esModuleInterop": true, // fix problem when importing older packages
+		"isolatedModules": true, // ensure that the types you write are checkable looking at a single file
+		"resolveJsonModule": true, // allow json import
+		"verbatimModuleSyntax": true, // if i only import a type from a file don't drop the import after compilation
+		"useDefineForClassFields": true, // use the TC39 class fields instead of the typescript implementation
+		"allowImportingTsExtensions": true, // allow importing ts file
+		"noUncheckedSideEffectImports": true, // error on unresolvable side-effect imports
+		"allowSyntheticDefaultImports": true, // impot X from "x" instead of import * as X from "x"
+
+		// build config
+		"noEmit": true, // don't output code
+		"sourceMap": true, // enable sourcemap
+		"incremental": true, // cache some informations about the types to speed up the next typechecks
+		"tsBuildInfoFile": ".tsbuildinfo" // set the name of the cache file
+	},
+
+	"exclude": ["${configDir}/**/node_modules", "${configDir}/**/.output", "${configDir}/**/.docs"],
+	"include": ["${configDir}/index.ts", "${configDir}/src/**/*", "${configDir}/*.config.*"]
+}

@@ -1,0 +1,98 @@
+{
+	"$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+
+	"linter": {
+		"domains": { "react": "recommended" },
+		"rules": {
+			"complexity": {
+				"useLiteralKeys": "off",
+				"useArrowFunction": "warn",
+				"noUselessStringConcat": "warn",
+				"useSimplifiedLogicExpression": "warn"
+			},
+			"suspicious": {
+				"noConsole": "error",
+				"noExplicitAny": "off",
+				"noConfusingVoidType": "off",
+				"noAssignInExpressions": "off",
+				"noShadowRestrictedNames": "off"
+			},
+			"style": {
+				"useNumberNamespace": "warn",
+				"useAsConstAssertion": "warn",
+				"useEnumInitializers": "warn",
+				"useDefaultParameterLast": "warn",
+				"noUnusedTemplateLiteral": "warn",
+				"useConsistentArrayType": { "level": "error", "options": { "syntax": "shorthand" } },
+				"noRestrictedGlobals": {
+					"level": "error",
+					"options": {
+						"deniedGlobals": { "Number": "", "String": "", "Object": "", "Array": "", "global": "", "location": "" }
+					}
+				}
+			},
+			"correctness": {
+				"useYield": "off",
+				"noChildrenProp": "off",
+				"noUnusedImports": "off",
+				"noUnusedVariables": "off",
+				"useImportExtensions": "error",
+				"noUndeclaredDependencies": "off",
+				"noUnusedFunctionParameters": "off"
+			},
+			"nursery": {
+				"noFloatingPromises": "warn",
+				"useSortedClasses": { "level": "error", "fix": "safe" }
+			}
+		}
+	},
+
+	"formatter": { "lineWidth": 120, "formatWithErrors": true },
+	"assist": { "actions": { "source": { "organizeImports": "on" } } },
+
+	"html": { "formatter": { "indentScriptAndStyle": true } },
+	"css": { "formatter": { "enabled": true }, "parser": { "cssModules": true, "tailwindDirectives": true } },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"trailingCommas": "none",
+			"arrowParentheses": "asNeeded"
+		}
+	},
+
+	"vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+	"files": {
+		"includes": ["**/*.ts", "**/*.tsx", "**/*.css", "**/*.yaml", "**/*.json", "!**/*.gen.ts"]
+	},
+
+	"overrides": [
+		{
+			"includes": ["**/package.json"],
+			"json": { "formatter": { "expand": "auto" } }
+		},
+		{
+			"includes": ["**/components/ui/*.tsx"],
+			"linter": {
+				"rules": {
+					"style": {
+						"noRestrictedGlobals": "off"
+					},
+					"suspicious": {
+						"noDoubleEquals": "off",
+						"noArrayIndexKey": "off"
+					},
+					"security": {
+						"noDangerouslySetInnerHtml": "off"
+					},
+					"a11y": {
+						"useValidAriaRole": "off",
+						"useSemanticElements": "off",
+						"useKeyWithClickEvents": "off",
+						"noLabelWithoutControl": "off"
+					}
+				}
+			}
+		}
+	]
+}
