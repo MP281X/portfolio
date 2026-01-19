@@ -11,7 +11,7 @@
 		"setup": "sh ./scripts/setup.sh"
 	},
 
-	"dependencies": { "pg": "^8", "kysely": "^0" },
+	"dependencies": {},
 
 	"devDependencies": {
 		"@mp281x/shared-config": "latest",
@@ -27,9 +27,6 @@
 
 		"ts-node": "^10",
 		"typescript": "^5",
-
-		"@ariga/atlas": "^0",
-		"kysely-codegen": "^0",
 
 		"postcss": "^8",
 		"tailwindcss": "^3",
