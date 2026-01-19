@@ -10,32 +10,67 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as homeIndexRouteImport } from './routes/(home)/index'
+import { Route as homeSkillsRouteImport } from './routes/(home)/skills'
+import { Route as homeProjectsRouteImport } from './routes/(home)/projects'
+import { Route as homeAboutRouteImport } from './routes/(home)/about'
 
 const homeIndexRoute = homeIndexRouteImport.update({
   id: '/(home)/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const homeSkillsRoute = homeSkillsRouteImport.update({
+  id: '/(home)/skills',
+  path: '/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const homeProjectsRoute = homeProjectsRouteImport.update({
+  id: '/(home)/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const homeAboutRoute = homeAboutRouteImport.update({
+  id: '/(home)/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
+  '/about': typeof homeAboutRoute
+  '/projects': typeof homeProjectsRoute
+  '/skills': typeof homeSkillsRoute
   '/': typeof homeIndexRoute
 }
 export interface FileRoutesByTo {
+  '/about': typeof homeAboutRoute
+  '/projects': typeof homeProjectsRoute
+  '/skills': typeof homeSkillsRoute
   '/': typeof homeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/(home)/about': typeof homeAboutRoute
+  '/(home)/projects': typeof homeProjectsRoute
+  '/(home)/skills': typeof homeSkillsRoute
   '/(home)/': typeof homeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/about' | '/projects' | '/skills' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/(home)/'
+  to: '/about' | '/projects' | '/skills' | '/'
+  id:
+    | '__root__'
+    | '/(home)/about'
+    | '/(home)/projects'
+    | '/(home)/skills'
+    | '/(home)/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  homeAboutRoute: typeof homeAboutRoute
+  homeProjectsRoute: typeof homeProjectsRoute
+  homeSkillsRoute: typeof homeSkillsRoute
   homeIndexRoute: typeof homeIndexRoute
 }
 
@@ -48,10 +83,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof homeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(home)/skills': {
+      id: '/(home)/skills'
+      path: '/skills'
+      fullPath: '/skills'
+      preLoaderRoute: typeof homeSkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(home)/projects': {
+      id: '/(home)/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof homeProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(home)/about': {
+      id: '/(home)/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof homeAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  homeAboutRoute: homeAboutRoute,
+  homeProjectsRoute: homeProjectsRoute,
+  homeSkillsRoute: homeSkillsRoute,
   homeIndexRoute: homeIndexRoute,
 }
 export const routeTree = rootRouteImport

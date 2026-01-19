@@ -166,3 +166,17 @@
 ::-webkit-scrollbar-button {
 	display: none;
 }
+
+/* Mode colors */
+[data-mode="home"] {
+	--primary: oklch(0.68 0.15 35);
+}
+[data-mode="skills"] {
+	--primary: oklch(0.68 0.12 220);
+}
+[data-mode="projects"] {
+	--primary: oklch(0.68 0.12 280);
+}
+[data-mode="about"] {
+	--primary: oklch(0.68 0.12 160);
+}

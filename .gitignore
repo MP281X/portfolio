@@ -9,5 +9,5 @@
 # packages
 **/node_modules
 
-# cloned repos (docs)
-**/.repos
+# cloned repos
+.opencode/repos

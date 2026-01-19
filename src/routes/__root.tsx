@@ -1,13 +1,15 @@
-import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router'
+import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
 import { Function } from 'effect'
+import { StatusBar } from '@/components/status-bar.tsx'
 import stylesheet from '../styles.css?url'
 
 export const Route = createRootRoute({
 	head: Function.constant({
 		meta: [
 			{ charSet: 'utf-8' },
-			{ title: 'Blixter' },
-			{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
+			{ title: 'MP | Portfolio' },
+			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+			{ name: 'description', content: 'Matteo Paludgnach - Full-Stack Developer' }
 		],
 		links: [{ rel: 'stylesheet', href: stylesheet }]
 	}),
@@ -19,11 +21,22 @@ export const Route = createRootRoute({
 				<HeadContent />
 			</head>
 
-			<body className="flex h-screen w-full">
+			<body className="flex h-screen w-full overflow-hidden bg-background text-foreground">
 				<Scripts />
-
 				{props.children}
 			</body>
 		</html>
-	)
+	),
+	component: RootComponent
 })
+
+function RootComponent() {
+	return (
+		<>
+			<main className="flex-1 overflow-auto pb-6">
+				<Outlet />
+			</main>
+			<StatusBar />
+		</>
+	)
+}
