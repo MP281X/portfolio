@@ -17,7 +17,7 @@ export function NotFound() {
 export function Loading() {
 	return (
 		<div className="flex size-full items-center justify-center">
-			<div className="animation-duration-[2.5s] size-8 animate-spin border-2 border-muted-foreground/50" />
+			<div className="size-8 animate-spin border-2 border-muted-foreground/50" />
 		</div>
 	)
 }
