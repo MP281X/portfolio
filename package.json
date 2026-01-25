@@ -17,19 +17,14 @@
 		"react": "^19",
 		"react-dom": "^19",
 
-		"cmdk": "latest",
 		"shiki": "latest",
-		"sonner": "latest",
 		"@base-ui/react": "^1",
 		"lucide-react": "latest",
-		"react-resizable-panels": "latest",
 		"@icons-pack/react-simple-icons": "latest",
 		"@fontsource-variable/jetbrains-mono": "latest",
 
 		"@tanstack/react-start": "^1",
 		"@tanstack/react-router": "^",
-		"@tanstack/router-plugin": "^1",
-		"@tanstack/react-router-ssr-query": "^1",
 
 		"clsx": "latest",
 		"tailwind-merge": "latest",
@@ -55,7 +50,7 @@
 		"@tailwindcss/vite": "^4",
 
 		"nitro": "latest",
-		"vite": "^8.0.0-beta.7",
+		"vite": "^8.0.0-beta",
 		"@vitejs/plugin-react": "latest",
 		"babel-plugin-react-compiler": "latest"
 	}

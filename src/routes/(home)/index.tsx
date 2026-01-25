@@ -20,8 +20,8 @@ const homeSource = `export function Home() {
 
 function Page() {
 	return (
-		<section className="flex min-h-[100dvh] w-full items-center justify-center px-4 py-8 sm:px-6">
-			<TerminalWindow className="w-full max-w-[960px]">
+		<section className="flex min-h-dvh w-full items-center justify-center px-4 py-8 sm:px-6">
+			<TerminalWindow className="w-full max-w-240">
 				<TerminalPrompt>cat home.tsx</TerminalPrompt>
 				<TerminalOutput language="tsx">{homeSource}</TerminalOutput>
 			</TerminalWindow>

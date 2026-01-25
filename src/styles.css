@@ -137,6 +137,16 @@
 	--radius-4xl: calc(var(--radius) + 16px);
 }
 
+@layer base {
+	* {
+		@apply border-border outline-none;
+	}
+
+	body {
+		@apply bg-background text-foreground select-none;
+	}
+}
+
 @media print {
 	@page {
 		size: A4;

@@ -50,7 +50,7 @@ const modeStyles = {
 	skills: 'oklch(0.68 0.12 220)',
 	projects: 'oklch(0.68 0.16 20)',
 	about: 'oklch(0.68 0.12 160)',
-	cv: 'oklch(0.66 0.08 38)'
+	cv: 'oklch(0.68 0.02 0)'
 } satisfies Record<RouteMode, string>
 
 function RootComponent() {
@@ -68,7 +68,7 @@ function RootComponent() {
 		>
 			<div
 				aria-hidden="true"
-				className="pointer-events-none absolute inset-0 z-0 opacity-30"
+				className="pointer-events-none fixed inset-0 z-0 opacity-30 print:hidden"
 				style={{
 					backgroundImage:
 						'linear-gradient(transparent 92%, oklch(1 0 0 / 0.04) 100%), linear-gradient(90deg, transparent 92%, oklch(1 0 0 / 0.04) 100%)',
@@ -76,7 +76,7 @@ function RootComponent() {
 				}}
 			/>
 			<FloatingIcons />
-			<main className="relative z-10 flex min-h-0 flex-1 flex-col overflow-auto pb-7">
+			<main className="relative z-10 flex min-h-0 flex-1 flex-col overflow-auto pb-7 print:overflow-visible print:pb-0">
 				<Outlet />
 			</main>
 			<StatusBar />

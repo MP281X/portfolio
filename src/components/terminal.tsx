@@ -1,5 +1,12 @@
 import type { CSSProperties, ReactNode } from 'react'
-import { createHighlighter, type ThemedTokenWithVariants } from 'shiki'
+import { createHighlighterCore, type ThemedTokenWithVariants } from 'shiki/core'
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript'
+import bash from 'shiki/langs/bash.mjs'
+import markdown from 'shiki/langs/markdown.mjs'
+import tsx from 'shiki/langs/tsx.mjs'
+import typescript from 'shiki/langs/typescript.mjs'
+import githubDarkDefault from 'shiki/themes/github-dark-default.mjs'
+import githubLightDefault from 'shiki/themes/github-light-default.mjs'
 import { Badge } from '@/components/ui/badge.tsx'
 import { Card, CardContent, CardHeader } from '@/components/ui/card.tsx'
 import { Separator } from '@/components/ui/separator.tsx'
@@ -9,9 +16,10 @@ const HIGHLIGHT_THEMES = {
 	dark: 'github-dark-default'
 } as const
 
-const highlighter = await createHighlighter({
-	themes: [HIGHLIGHT_THEMES.light, HIGHLIGHT_THEMES.dark],
-	langs: ['bash', 'markdown', 'tsx', 'typescript']
+const highlighter = await createHighlighterCore({
+	themes: [githubLightDefault, githubDarkDefault],
+	langs: [bash, markdown, tsx, typescript],
+	engine: createJavaScriptRegexEngine()
 })
 
 type TerminalLanguage = 'bash' | 'markdown' | 'tsx' | 'typescript'
@@ -75,7 +83,7 @@ export function TerminalOutput(input: TerminalOutputProps) {
 	const tokens = input.children.length ? tokenizeTerminal({ code: input.children, language: input.language }) : []
 
 	return (
-		<div className="text-sm leading-6 sm:text-base sm:leading-7">
+		<div className="select-text text-sm leading-6 sm:text-base sm:leading-7">
 			{tokens.map(line => {
 				const lineKey = line[0]?.offset ?? line.map(token => token.content).join('')
 

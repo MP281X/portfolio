@@ -71,7 +71,7 @@ const floatingIcons: IconDefinition[] = [
 
 export function FloatingIcons() {
 	return (
-		<div className="pointer-events-none absolute inset-0 z-[1] hidden overflow-hidden sm:block">
+		<div className="pointer-events-none fixed inset-0 z-[1] hidden overflow-hidden sm:block print:hidden">
 			{floatingIcons.map(icon => (
 				<icon.Icon key={icon.id} className={`absolute ${icon.className}`} aria-hidden="true" />
 			))}
