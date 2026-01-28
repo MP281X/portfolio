@@ -7,7 +7,13 @@ import { defineConfig } from 'vite'
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
-		tanstackStart(),
+		tanstackStart({
+			prerender: {
+				enabled: true,
+				failOnError: true,
+				autoStaticPathsDiscovery: true
+			}
+		}),
 		nitro({ preset: 'bun' }),
 		viteReact({ babel: { plugins: [['babel-plugin-react-compiler']] } })
 	],
