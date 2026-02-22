@@ -10,37 +10,46 @@ export const Route = createFileRoute('/(home)/cv')({
 })
 
 const headerInfo = {
-	name: 'PALUDGNACH MATTEO',
-	title: 'Full-Stack TypeScript Engineer - React, Effect, Real-Time',
+	name: 'MATTEO PALUDGNACH',
+	title: 'Full-Stack TypeScript Developer | React, Effect-TS, Node.js, PostgreSQL',
 	location: 'Moimacco (UD), Italy',
-	phone: '+39 3518853376',
+	phone: '+39 351 885 3376',
 	email: 'paludgnachmatteo.dev@gmail.com',
 	portfolio: 'portfolio.mp281x.xyz',
 	github: 'github.com/MP281X'
 }
 
 const summaryLines = [
-	'Full-stack TypeScript engineer specializing in React and Effect-TS, designing and shipping production-grade web apps with end-to-end type safety and real-time capabilities.',
-	'Owns the full SDLC: gathers stakeholder requirements, defines architecture, implements features, writes automated tests, and manages CI/CD + Kubernetes deployments.',
-	'Improves developer experience through internal tooling and automation (GitHub Actions, Docker, Kubernetes) and contributes to open-source TypeScript/React projects; exploring AI coding agents and LLM integrations.'
+	'Full-stack TypeScript developer with production experience building real-time, type-safe web applications using React, Node.js, and PostgreSQL.',
+	'Delivers features end-to-end from gathering user requirements to deploying containerized services in fast-paced, cross-functional teams.',
+	'Uses AI coding agents daily to accelerate development, refactoring, and testing while while enforcing manual code review to maintain consistency and code quality.'
 ]
 
-const keySkills = [
+const technicalSkills = [
 	{
-		area: 'Core',
-		items: 'TypeScript, React, TanStack Start/Router, Vite, Bun, Node.js'
+		area: 'Frontend',
+		items:
+			'React, TypeScript, TanStack (Router, Table, Form), Tailwind CSS, Responsive Design, Performance Optimization'
 	},
 	{
-		area: 'Functional TS',
-		items: 'Effect / Effect-TS (Schema, Layer), effect-atom (React state), typed error handling'
+		area: 'Backend',
+		items: 'Node.js, Effect-TS (functional TypeScript library), RESTful API, OpenAPI'
 	},
 	{
-		area: 'Cloud & DevOps',
-		items: 'Docker, Kubernetes, GitHub Actions, CI/CD, Nginx'
+		area: 'Data and Real-Time',
+		items: 'PostgreSQL, Redis, WebSockets, SSE (server-sent events)'
 	},
 	{
-		area: 'Data & Real-Time',
-		items: 'PostgreSQL, Redis, Server-Sent Events (SSE), ElectricSQL, real-time sync'
+		area: 'DevOps',
+		items: 'Docker, GitHub Actions, Git, Linux'
+	},
+	{
+		area: 'Testing',
+		items: 'End-to-end testing, Unit testing, Type-safe APIs'
+	},
+	{
+		area: 'AI Tooling',
+		items: 'AI coding agents, AI-assisted code review, Prompt engineering for development workflows'
 	}
 ]
 
@@ -48,40 +57,42 @@ const workExperience = [
 	{
 		company: 'Tinexta Cyber',
 		role: 'Full-Stack Developer',
-		period: 'Oct 2024 - Present',
+		period: 'October 2024 - Present',
 		location: 'Udine, Italy',
-		stack: 'TypeScript, React, Effect, effect-atom, Kotlin, Java (Spring Boot, Micronaut), Python, Docker, Kubernetes',
 		highlights: [
-			'Owned end-to-end delivery of a real-time network inventory web app (requirements, architecture, implementation, testing, and production rollout).',
-			'Built the frontend in React + Effect (Effect-TS) + effect-atom, modeling async workflows and application state with typed error handling for API/data flows.',
-			'Containerized and deployed services to Kubernetes; contributed to CI/CD pipelines and deployment automation.',
-			'Maintain and extend production services across Kotlin/Java/Python codebases, collaborating with cross-functional stakeholders.'
+			'Developed a real-time network inventory application for a major telecommunications company to track devices and cabling across 2+ datacenters.',
+			'Built the real-time frontend in React with ElectricSQL, enabling real-time updates across all connected users without manual page refreshes.',
+			'Implemented a custom type-safe RPC-like client in TypeScript by generating shared types from the Kotlin backend OpenAPI schema, remiving any frontend-backend integration bugs.',
+			'Gathered requirements directly from end users when the product specifications did not match their workflow, iterated through multiple feedback rounds to align the product with their workflow.',
+			'Containerized and deployed multiple services using Docker on Linux virtual machines and configured Jenkins CI/CD pipelines, reducing manual deployment steps for 2 projects.',
+			'Used AI coding agents with project-specific guidelines to accelerate feature development and large-scale refactors, reviewing all generated output to maintain code quality and consistency.',
+			'Worked across 3+ projects with different tech stacks (TypeScript, Kotlin with Spring Boot and Micronaut, Python) and different team sizes, adapting quickly to each codebase.'
 		]
 	},
 	{
 		company: 'Altitudo',
 		role: 'Frontend Developer',
-		period: 'Jan 2024 - Mar 2024',
+		period: 'January 2024 - March 2024',
 		location: 'Salzburg, Austria',
-		note: 'Internship (Erasmus)',
-		stack: 'TypeScript, React, Vite, REST APIs, Tailwind CSS',
+		note: 'Erasmus Internship',
 		highlights: [
-			'Built a type-safe API client layer (typed endpoints, consistent error mapping) adopted across the frontend to standardize data fetching.',
-			'Migrated the codebase from Create React App to Vite, improving build speed and local iteration loops.',
-			'Improved rendering performance by refactoring to hooks and removing unnecessary re-renders in core screens.'
+			'Migrated the build system from Create React App to Vite, reducing build times and improving the local development feedback loop for the entire team.',
+			'Improved rendering performance by adding proper memoization and removing expensive re-renders in core screens, resulting in noticeably faster page interactions.',
+			'Migrated legacy class components to modern functional components using the React hooks, making the codebase easier to read and maintain.',
+			'Recreated and restyled multiple pages using React and Tailwind CSS to match the updated design system.'
 		]
 	},
 	{
-		company: 'Bizaway',
+		company: 'BizAway',
 		role: 'Backend Developer',
-		period: 'Jun 2023 - Aug 2023',
+		period: 'June 2023 - August 2023',
 		location: 'Spilimbergo, Italy',
 		note: 'Internship',
-		stack: 'TypeScript, Node.js, OpenAPI, PostgreSQL, Docker, Playwright, Angular',
 		highlights: [
-			'Shipped OpenAPI-first REST endpoints with generated TypeScript types shared across Node.js backend and Angular frontend.',
-			'Implemented transactional email workflows with validation, structured logging, and failure handling for booking and approval events.',
-			'Added Playwright end-to-end coverage for critical flows, increasing release confidence and preventing regressions.'
+			'Developed a type-safe end-to-end testing framework on top of the existing OpenAPI schema using Playwright, catching multiple subtle API bugs and making it significantly easier to add tests for new endpoints.',
+			'Built a type-safe email template framework using TSX-style components, enabling both developers and non-developers to create and reuse email templates with strong typing on input data.',
+			'Migrated API endpoints from the old OpenAPI version to the new specification and updated all related tests in TypeScript and Node.js.',
+			'Built and updated multiple Angular components and features of the main product based on the new requirements.'
 		]
 	}
 ]
@@ -89,20 +100,18 @@ const workExperience = [
 const education = [
 	{
 		school: 'ITS Alto Adriatico',
-		degree: 'Tecnico Superiore Cloud Developer',
+		degree: 'Cloud Developer Diploma',
 		grade: '95/100',
 		period: '2022 - 2024',
-		level: 'EQF 5 (Short-cycle tertiary)',
 		highlights: [
-			'2-year post-secondary program focused on cloud-native architectures, CI/CD, containerization, and full-stack web applications.'
+			'Two-year post-secondary program focused on cloud-native architectures, Continuous Integration/Continuous Deployment (CI/CD), containerization with Docker and Kubernetes, and full-stack web application development.'
 		]
 	},
 	{
 		school: 'ISIS A. Malignani',
 		degree: 'High School Diploma - IT and Telecommunications',
 		period: '2017 - 2022',
-		level: 'EQF 4',
-		highlights: ['Covered telecommunications, electronics, and networking fundamentals.']
+		highlights: ['Covered telecommunications, electronics, networking fundamentals, and programming foundations.']
 	}
 ]
 
@@ -110,30 +119,6 @@ const languages = [
 	{ language: 'Italian', level: 'Native' },
 	{ language: 'English', level: 'C1' },
 	{ language: 'Spanish', level: 'Basic' }
-]
-
-const selectedProjects = [
-	{
-		name: 'portfolio.mp281x.xyz',
-		description:
-			'SSR portfolio and print-ready CV as code, with a terminal-style UI and a focus on maintainability and type safety.',
-		tech: 'React 19, TypeScript, TanStack Start/Router, Effect, Tailwind CSS, Vite, Docker',
-		link: 'github.com/MP281X/portfolio'
-	},
-	{
-		name: 'kotlin-react-template',
-		description:
-			'Monorepo starter with React frontend + Kotlin/Spring backend; one-command local dev setup (Docker services, migrations, OpenAPI/DB codegen, TLS proxy).',
-		tech: 'React 19, TypeScript, Kotlin, Spring Boot, Postgres, ElectricSQL, Bun, Turbo, Docker, Nginx',
-		link: 'github.com/MP281X/kotlin-react-template'
-	},
-	{
-		name: 'Blixter Video',
-		description:
-			'Open-source streaming platform built as a TypeScript monorepo; backend on Bun + SvelteKit frontend, deployed on a self-hosted k3s cluster.',
-		tech: 'TypeScript, Bun, SvelteKit, PostgreSQL, Redis (cache/pub-sub/queues), MinIO (S3), Kubernetes (k3s)',
-		link: 'github.com/MP281X/blixter_video'
-	}
 ]
 
 type SectionHeadingProps = {
@@ -201,9 +186,9 @@ function Page() {
 						</section>
 
 						<section className="space-y-2.5 print:space-y-1.5">
-							<SectionHeading title="Key Skills" />
+							<SectionHeading title="Technical Skills" />
 							<ul className="grid grid-cols-1 gap-y-1.25 text-[10px] text-muted-foreground leading-[1.35] print:gap-y-1 print:text-[9.3px] print:text-slate-700 print:leading-tight">
-								{keySkills.map(skill => (
+								{technicalSkills.map(skill => (
 									<li key={skill.area} className="flex items-start gap-2">
 										<span
 											className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400"
@@ -234,7 +219,7 @@ function Page() {
 												<span className="font-semibold text-foreground print:text-slate-900">{job.role}</span>
 												{job.note && (
 													<span className="text-[8.5px] text-muted-foreground/60 print:text-[8px] print:text-slate-400">
-														({job.note})
+														{job.note}
 													</span>
 												)}
 											</div>
@@ -246,12 +231,6 @@ function Page() {
 												</span>
 											</div>
 										</div>
-										{job.stack && (
-											<div className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 pl-2 text-[9px] text-muted-foreground leading-[1.4] print:text-[8.6px] print:text-slate-600 print:leading-[1.26]">
-												<span className="font-semibold text-foreground print:text-slate-900">Stack:</span>
-												<span>{job.stack}</span>
-											</div>
-										)}
 										{Array.isNonEmptyArray(job.highlights) && (
 											<ul className="space-y-1.25 pl-2 text-muted-foreground leading-[1.42] print:space-y-1 print:text-slate-700 print:leading-[1.3]">
 												{job.highlights.map(highlight => (
@@ -262,35 +241,6 @@ function Page() {
 												))}
 											</ul>
 										)}
-									</div>
-								))}
-							</div>
-						</section>
-
-						<section className="space-y-2.5 print:space-y-1.5">
-							<SectionHeading title="Projects" />
-							<div className="space-y-2.5 print:space-y-2">
-								{selectedProjects.map(project => (
-									<div key={project.name} className="space-y-1 print:space-y-0.75">
-										<div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-											<span className="font-semibold text-foreground print:text-slate-950">{project.name}</span>
-											<span className="text-[9.2px] text-muted-foreground/80 print:text-[8.8px] print:text-slate-600">
-												{project.link}
-											</span>
-										</div>
-										<ul className="space-y-1 pl-2 text-muted-foreground leading-[1.35] print:space-y-0.75 print:text-slate-700 print:leading-[1.22]">
-											<li className="flex items-start gap-2">
-												<span className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400" />
-												<span className="text-[10px] print:text-[9.4px]">{project.description}</span>
-											</li>
-											<li className="flex items-start gap-2">
-												<span className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400" />
-												<span className="text-[10px] print:text-[9.4px]">
-													<span className="font-semibold text-foreground print:text-slate-900">Tech Stack:</span>{' '}
-													{project.tech}
-												</span>
-											</li>
-										</ul>
 									</div>
 								))}
 							</div>
@@ -331,12 +281,8 @@ function Page() {
 													</span>
 												)}
 											</div>
-											<div className="flex items-baseline justify-end gap-2 text-[9.2px] text-muted-foreground tabular-nums print:text-[8.8px] print:text-slate-600">
-												<span>{entry.period}</span>
-												<span className="text-muted-foreground/30 print:text-slate-300">|</span>
-												<span className="whitespace-nowrap font-semibold text-foreground print:text-slate-900">
-													{entry.level}
-												</span>
+											<div className="text-[9.2px] text-muted-foreground tabular-nums print:text-[8.8px] print:text-slate-600">
+												{entry.period}
 											</div>
 										</div>
 										{Array.isNonEmptyArray(entry.highlights) && (
@@ -358,8 +304,8 @@ function Page() {
 
 					<footer className="mt-auto border-border/30 border-t pt-4 print:border-slate-200 print:pt-2.5">
 						<p className="text-[8.5px] text-muted-foreground/60 leading-relaxed print:text-[8px] print:text-slate-400">
-							I authorize the processing of personal data present in the CV according to the ‌General data protection
-							regulation 679/2016.
+							I authorize the processing of personal data present in this CV according to the General Data Protection
+							Regulation 679/2016.
 						</p>
 					</footer>
 				</div>
