@@ -121,18 +121,14 @@ const languages = [
 	{ language: 'Spanish', level: 'Basic' }
 ]
 
-type SectionHeadingProps = {
-	readonly title: string
-}
-
-function SectionHeading(input: SectionHeadingProps) {
+function SectionHeading(input: { readonly title: string }) {
 	return (
-		<div className="mb-2 flex items-center gap-2 print:mb-1.5">
+		<div className="mb-2 flex items-center gap-2 print:mb-1.5" role="presentation">
 			<span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary/80 print:bg-slate-900" aria-hidden="true" />
 			<h2 className="shrink-0 font-bold text-[9.5px] text-foreground uppercase leading-none tracking-[0.2em] print:text-[9px] print:text-slate-800">
 				{input.title}
 			</h2>
-			<div className="h-px flex-1 bg-border/45 print:bg-slate-300" />
+			<div className="h-px flex-1 bg-border/45 print:bg-slate-300" aria-hidden="true" />
 		</div>
 	)
 }
@@ -141,7 +137,8 @@ function Page() {
 	return (
 		<section className="flex h-[calc(100dvh-1.75rem)] w-full select-text items-start justify-center overflow-y-auto px-4 py-8 sm:px-6 print:h-auto print:min-h-0 print:overflow-visible print:px-0 print:py-0">
 			<article
-				className="mx-auto w-full max-w-[210mm] border border-border/40 bg-card text-foreground shadow-sm print:w-full print:max-w-none print:border-0 print:bg-white print:shadow-none"
+				className="mx-auto w-full max-w-[210mm] select-text border border-border/40 bg-card text-foreground shadow-sm print:w-full print:max-w-none print:border-0 print:bg-white print:shadow-none"
+				lang="en"
 				style={{
 					fontFamily:
 						'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif'
@@ -157,13 +154,16 @@ function Page() {
 								{headerInfo.title}
 							</p>
 						</div>
-						<div className="mt-2 space-y-1 text-[9.5px] text-muted-foreground leading-[1.35] print:mt-1.5 print:space-y-0.5 print:text-[8.8px] print:text-slate-700">
+						<address className="mt-2 space-y-1 text-[9.5px] text-muted-foreground not-italic leading-[1.35] print:mt-1.5 print:space-y-0.5 print:text-[8.8px] print:text-slate-700">
 							<div className="flex flex-wrap items-center gap-y-1">
 								{[headerInfo.location, headerInfo.phone, headerInfo.email, headerInfo.portfolio, headerInfo.github].map(
 									(item, index) => (
 										<span key={item} className="flex items-center">
 											{index > 0 && (
-												<span className="mx-2 text-muted-foreground/70 print:text-slate-400" aria-hidden="true">
+												<span
+													className="mx-2 select-none text-muted-foreground/70 print:text-slate-400"
+													aria-hidden="true"
+												>
 													|
 												</span>
 											)}
@@ -172,11 +172,11 @@ function Page() {
 									)
 								)}
 							</div>
-						</div>
+						</address>
 					</header>
 
 					<div className="flex flex-1 flex-col gap-6 print:gap-4">
-						<section className="space-y-2.5 print:space-y-1.5">
+						<section aria-label="Professional Summary" className="space-y-2.5 print:space-y-1.5">
 							<SectionHeading title="Professional Summary" />
 							<div className="space-y-1.5 text-muted-foreground leading-normal print:space-y-0 print:text-slate-700 print:leading-[1.38]">
 								{summaryLines.map(line => (
@@ -185,7 +185,7 @@ function Page() {
 							</div>
 						</section>
 
-						<section className="space-y-2.5 print:space-y-1.5">
+						<section aria-label="Technical Skills" className="space-y-2.5 print:space-y-1.5">
 							<SectionHeading title="Technical Skills" />
 							<ul className="grid grid-cols-1 gap-y-1.25 text-[10px] text-muted-foreground leading-[1.35] print:gap-y-1 print:text-[9.3px] print:text-slate-700 print:leading-tight">
 								{technicalSkills.map(skill => (
@@ -203,7 +203,7 @@ function Page() {
 							</ul>
 						</section>
 
-						<section className="space-y-2.5 print:space-y-1.5">
+						<section aria-label="Work Experience" className="space-y-2.5 print:space-y-1.5">
 							<SectionHeading title="Work Experience" />
 							<div className="space-y-4 print:space-y-2.25">
 								{workExperience.map(job => (
@@ -213,11 +213,11 @@ function Page() {
 												<span className="font-bold text-[10.75px] text-foreground uppercase tracking-[0.05em] print:text-[10.2px] print:text-slate-950">
 													{job.company}
 												</span>
-												<span className="text-muted-foreground/40 print:text-slate-300" aria-hidden="true">
+												<span className="select-none text-muted-foreground/40 print:text-slate-300" aria-hidden="true">
 													-
 												</span>
 												<span className="font-semibold text-foreground print:text-slate-900">{job.role}</span>
-												{job.note && (
+												{'note' in job && (
 													<span className="text-[8.5px] text-muted-foreground/60 print:text-[8px] print:text-slate-400">
 														{job.note}
 													</span>
@@ -225,7 +225,9 @@ function Page() {
 											</div>
 											<div className="flex items-baseline justify-end gap-2 text-[9.2px] text-muted-foreground tabular-nums print:text-[8.8px] print:text-slate-600">
 												<span>{job.location}</span>
-												<span className="text-muted-foreground/30 print:text-slate-300">|</span>
+												<span className="select-none text-muted-foreground/30 print:text-slate-300" aria-hidden="true">
+													|
+												</span>
 												<span className="whitespace-nowrap font-semibold text-foreground print:text-slate-900">
 													{job.period}
 												</span>
@@ -235,7 +237,10 @@ function Page() {
 											<ul className="space-y-1.25 pl-2 text-muted-foreground leading-[1.42] print:space-y-1 print:text-slate-700 print:leading-[1.3]">
 												{job.highlights.map(highlight => (
 													<li key={highlight} className="flex items-start gap-2">
-														<span className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400" />
+														<span
+															className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400"
+															aria-hidden="true"
+														/>
 														<span className="text-[10px] print:text-[9.4px]">{highlight}</span>
 													</li>
 												))}
@@ -246,13 +251,16 @@ function Page() {
 							</div>
 						</section>
 
-						<section className="space-y-2.5 print:space-y-1.5">
+						<section aria-label="Languages" className="space-y-2.5 print:space-y-1.5">
 							<SectionHeading title="Languages" />
 							<ul className="space-y-1 pl-2 text-[10px] text-muted-foreground leading-[1.35] print:space-y-0.75 print:text-[9.4px] print:text-slate-700 print:leading-tight">
 								{languages.map(entry => (
 									<li key={entry.language} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4">
 										<div className="flex items-start gap-2">
-											<span className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400" />
+											<span
+												className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400"
+												aria-hidden="true"
+											/>
 											<span className="min-w-0 text-[10px] print:text-[9.4px]">
 												<span className="font-semibold text-foreground print:text-slate-900">{entry.language}</span>
 											</span>
@@ -265,7 +273,7 @@ function Page() {
 							</ul>
 						</section>
 
-						<section className="space-y-2.5 print:space-y-1.5">
+						<section aria-label="Education" className="space-y-2.5 print:space-y-1.5">
 							<SectionHeading title="Education" />
 							<div className="space-y-2 print:space-y-1.5">
 								{education.map(entry => (
@@ -273,9 +281,11 @@ function Page() {
 										<div className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-5 gap-y-1">
 											<div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
 												<span className="font-semibold text-foreground print:text-slate-950">{entry.school}</span>
-												<span className="text-muted-foreground/30 print:text-slate-300">-</span>
+												<span className="select-none text-muted-foreground/30 print:text-slate-300" aria-hidden="true">
+													-
+												</span>
 												<span className="text-muted-foreground print:text-slate-700">{entry.degree}</span>
-												{entry.grade && (
+												{'grade' in entry && (
 													<span className="text-[9px] text-muted-foreground/80 print:text-[8.5px] print:text-slate-600">
 														({entry.grade})
 													</span>
@@ -289,7 +299,10 @@ function Page() {
 											<ul className="space-y-1 pl-2 text-muted-foreground leading-[1.35] print:space-y-0.5 print:text-slate-700 print:leading-[1.22]">
 												{entry.highlights.map(highlight => (
 													<li key={highlight} className="flex items-start gap-2">
-														<span className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400" />
+														<span
+															className="mt-[0.5em] h-0.75 w-0.75 shrink-0 rounded-full bg-foreground/35 print:bg-slate-400"
+															aria-hidden="true"
+														/>
 														<span className="text-[10px] print:text-[9.4px]">{highlight}</span>
 													</li>
 												))}
@@ -299,7 +312,7 @@ function Page() {
 								))}
 							</div>
 						</section>
-						<div className="h-4 print:hidden" />
+						<div className="h-4 print:hidden" aria-hidden="true" />
 					</div>
 
 					<footer className="mt-auto border-border/30 border-t pt-4 print:border-slate-200 print:pt-2.5">
